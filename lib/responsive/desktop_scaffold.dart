@@ -33,19 +33,21 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         SizedBox(width: 8,),
                         Text("info@raininn.com"),
                         SizedBox(width: 10),
-                        Text("Along the commercial street, Bolgatanga")
+                        Icon(Icons.location_pin, size: 18,),
+                        SizedBox(width: 8),
+                        Text("Along the commercial street, Bolgatanga"),
                       ],
                     ),
                     Row(
                       children: [
                         Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 8,),
+                        SizedBox(width: 12,),
                         Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 8,),
+                        SizedBox(width: 12,),
                         Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 8,),
+                        SizedBox(width: 12,),
                         Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 8,),
+                        SizedBox(width: 12,),
                       ],
                     ),
                   ],
@@ -70,7 +72,9 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           children: [
                             Expanded(
                               flex: 2,
-                                child: Container(color: Colors.lightBlue[50], height: 50,
+                                child: Container(
+                                  //color: Colors.lightBlue[50],
+                                  height: 50,
                                   child: const Column(
                                     children: [
                                       Row(
@@ -87,7 +91,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                             Expanded(
                                 flex: 5,
                                 child: Container(
-                                    color: Colors.lightBlue[50],
+                                    //color: Colors.lightBlue[50],
                                     height: 50,
                                   child:  Column(
                                     children: [
@@ -95,35 +99,46 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                         child: ListView(
                                           scrollDirection: Axis.horizontal,
                                           children:  const [
-                                            Row(children: [
-                                              MenuType(
-                                                  isSelected: true,
-                                                  coffeeType: "HOME"
-                                              ),
-                                              SizedBox(width: 20),
-                                              MenuType(
-                                                  isSelected: false,
-                                                  coffeeType: "SHOP"
-                                              ),
-                                              SizedBox(width: 20),
-                                              MenuType(
-                                                  isSelected: false,
-                                                  coffeeType: "PAGES"
-                                              ),
-                                              SizedBox(width: 20),
-                                              MenuType(
-                                                  isSelected: false,
-                                                  coffeeType: "BLOG"
-                                              ),
-                                              SizedBox(width: 20),
-                                              MenuType(
-                                                  isSelected: false,
-                                                  coffeeType: "CONTACT"
-                                              ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                  MenuType(
+                                                      isSelected: true,
+                                                      coffeeType: "HOME"
+                                                  ),
+                                                  SizedBox(width: 40),
+                                                  MenuType(
+                                                      isSelected: false,
+                                                      coffeeType: "SHOP"
+                                                  ),
+                                                  SizedBox(width: 40),
+                                                  MenuType(
+                                                      isSelected: false,
+                                                      coffeeType: "PAGES"
+                                                  ),
+                                                  SizedBox(width: 40),
+                                                  MenuType(
+                                                      isSelected: false,
+                                                      coffeeType: "BLOG"
+                                                  ),
+                                                  SizedBox(width: 40),
+                                                  MenuType(
+                                                      isSelected: false,
+                                                      coffeeType: "CONTACT"
+                                                  ),
 
-                                            ],),
-
-
+                                                ],
+                                                ),
+                                                SizedBox(width: 70,),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.favorite),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -234,49 +249,64 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
-                     SizedBox(
+                    const SizedBox(height: 30),
+                    const SizedBox(
                       height: 320,
-                      child: ListView(
-                        addAutomaticKeepAlives: true,
+                      //color: Colors.red,
+                      child: ScrollLoopAutoScroll(
                         scrollDirection: Axis.horizontal,
-                        children: const [
-
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                          SlideTile(
-                              slideImagePath: "assets/images/chair.png",
-                              slideName: "Stuffing Chair",
-                              slidePrice: "500.00"
-                          ),
-                        ],
+                        delay: Duration(seconds: 4),
+                        duration: Duration(seconds: 50),
+                        gap: 25,
+                        reverseScroll: false,
+                        duplicateChild : 25,
+                        enableScrollInput : false,
+                        delayAfterScrollInput : Duration(seconds: 4),
+                        child:  SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        // child: ListView(
+                        //   addAutomaticKeepAlives: true,
+                        //   scrollDirection: Axis.horizontal,
+                        //   children: const [
+                        //
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //     SlideTile(
+                        //         slideImagePath: "assets/images/chair.png",
+                        //         slideName: "Stuffing Chair",
+                        //         slidePrice: "500.00"
+                        //     ),
+                        //   ],
+                        // ),
                       ),
-
                     ),
-                     SizedBox(height: 50),
+                     const SizedBox(height: 50),
                      Column(
                       children: [
                         const Text("FEATURED PRODUCTS", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),),
@@ -286,7 +316,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           endIndent: 600,
                           thickness: 5,
                         ),
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                         SizedBox(height: 50,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
@@ -757,15 +787,17 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 50),
                     Row(
                       children: [
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                               height: 600,
-                              color: Colors.red,
+                              //color: Colors.red,
                               child: Column(
                                 children: [
-                                  Image.asset("assets/images/chair.png", height: 400,width: 400,),
+                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  const SizedBox(height: 18),
                                   const Row(
                                     children: [
                                       Icon(Icons.calendar_today, size: 18,),
@@ -801,23 +833,239 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               ),
                             )
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Expanded(
                             child: Container(
-                              height: 500,
-                              color: Colors.red,
+                              height: 600,
+                              //color: Colors.red,
+                              child: Column(
+                                children: [
+                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  const SizedBox(height: 18),
+                                  const Row(
+                                    children: [
+                                      Icon(Icons.calendar_today, size: 18,),
+                                      SizedBox(width: 4),
+                                      Text("February 18, 2024"),
+                                      SizedBox(width: 20),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.comment, size: 18,),
+                                          SizedBox(width: 4),
+                                          Text("10")
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Row(
+                                    children: [
+                                      Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Row(
+                                    children: [
+                                      Text("Stuffing is the soft material inside pillows, "
+                                          "\n mattresses, or sofa cushions. Without stuffing, "
+                                          "\n your comfy chair wouldn't be very comfy.",
+                                        style: TextStyle(color: Colors.black54),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             )
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Expanded(
                             child: Container(
-                              height: 500,
-                              color: Colors.red,
+                              height: 600,
+                              //color: Colors.red,
+                              child: Column(
+                                children: [
+                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  const SizedBox(height: 18),
+                                  const Row(
+                                    children: [
+                                      Icon(Icons.calendar_today, size: 18,),
+                                      SizedBox(width: 4),
+                                      Text("February 18, 2024"),
+                                      SizedBox(width: 20),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.comment, size: 18,),
+                                          SizedBox(width: 4),
+                                          Text("10")
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Row(
+                                    children: [
+                                      Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Row(
+                                    children: [
+                                      Text("Stuffing is the soft material inside pillows, "
+                                          "\n mattresses, or sofa cushions. Without stuffing, "
+                                          "\n your comfy chair wouldn't be very comfy.",
+                                        style: TextStyle(color: Colors.black54),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             )
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
+                ),
+              ),
+              Container(
+                height: 400,
+                color: Colors.lightGreen[50],
+                child:  Padding(
+                  padding: EdgeInsets.only(left: 300.0, right: 300, top: 50),
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                              child: Container(
+                                height: 200,
+                                //color: Colors.red,
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("RAIN INN MALL", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),),
+                                    SizedBox(height: 20),
+                                    Text("Address: Commercial Street, Bolgatanga"),
+                                    SizedBox(height: 15),
+                                    Text("Phone: +122 553 354 349"),
+                                    SizedBox(height: 15),
+                                    Text("Email: raininn@gmail.com"),
+                                  ],
+                                ),
+                              )
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                              child: Container(
+                                height: 250,
+                                //color: Colors.red,
+                                child: const Padding(
+                                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text("USEFUL LINKS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30)),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("About Us"),
+                                          Text("Who We Are"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("Secure Products"),
+                                          Text("Project"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("About Our Shop"),
+                                          Text("Our Services"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("Privacy And Policy"),
+                                          Text("SiteMap"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("Delivery Information"),
+                                          Text("Contact"),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                          ),
+                          SizedBox(width: 8),
+                          Expanded(
+                              child: Container(
+                                height: 200,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    const Text("JOIN OUR NEWSLETTER NOW", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30)),
+                                    SizedBox(height: 20),
+                                    Text("Get E-mail updates about our latest shop and special offers."),
+                                    SizedBox(height: 15),
+                                    SizedBox(
+                                      height: 40,
+                                      width: 300,
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                            prefixIcon: const Icon(Icons.search),
+                                            hintText: "Search...",
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(color: Colors.grey.shade600),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(color: Colors.grey.shade600),
+                                            )
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 15),
+                                    const Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Icon(Icons.facebook),
+                                        Icon(Icons.facebook),
+                                        Icon(Icons.facebook),
+                                        Icon(Icons.facebook)
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                //color: Colors.red,
+                              )
+                          ),
+                        ],
+                      ),
+                      Divider(),
+                      const Row(
+                        children: [
+                          Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
+                          SizedBox(width: 10),
+                          Text('|'),
+                          SizedBox(width: 10),
+                          Text('Powered KologSoft', style: TextStyle(fontSize: 15)),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -850,9 +1098,9 @@ class featured_product extends StatelessWidget {
           ),
         ),
          Text(featuredName),
-         Text('\$$featuredPrice', style: TextStyle(fontWeight: FontWeight.w600),
+         Text('\$$featuredPrice', style: const TextStyle(fontWeight: FontWeight.w600),
          ),
-        Row(
+        const Row(
           children: [
             Icon(Icons.favorite, size: 18,),
             SizedBox(width: 10),
