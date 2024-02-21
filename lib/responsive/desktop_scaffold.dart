@@ -4,6 +4,8 @@ import 'package:raininn/widgets/drawer.dart';
 import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+
+import '../widgets/featured_product.dart';
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
 
@@ -307,20 +309,21 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                       ),
                     ),
                      const SizedBox(height: 50),
-                     Column(
+                     const Column(
                       children: [
-                        const Text("FEATURED PRODUCTS", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),),
-                        const Divider(
+                        Text("FEATURED PRODUCTS", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),),
+                        Divider(
                           color: Colors.orange,
                           indent: 600,
                           endIndent: 600,
                           thickness: 5,
                         ),
-                        const SizedBox(height: 30),
+                        SizedBox(height: 30),
                         SizedBox(height: 50,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: const [
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            //scrollDirection: Axis.horizontal,
+                            children: [
                               MenuType(
                                   isSelected: true,
                                   coffeeType: "ALL"
@@ -930,7 +933,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                 height: 400,
                 color: Colors.lightGreen[50],
                 child:  Padding(
-                  padding: EdgeInsets.only(left: 300.0, right: 300, top: 50),
+                  padding: const EdgeInsets.only(left: 300.0, right: 300, top: 50),
                   child: Column(
                     children: [
                       Row(
@@ -1010,7 +1013,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 ),
                               )
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Expanded(
                               child: Container(
                                 height: 200,
@@ -1018,9 +1021,9 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     const Text("JOIN OUR NEWSLETTER NOW", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30)),
-                                    SizedBox(height: 20),
-                                    Text("Get E-mail updates about our latest shop and special offers."),
-                                    SizedBox(height: 15),
+                                    const SizedBox(height: 20),
+                                    const Text("Get E-mail updates about our latest shop and special offers."),
+                                    const SizedBox(height: 15),
                                     SizedBox(
                                       height: 40,
                                       width: 300,
@@ -1037,7 +1040,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 15),
+                                    const SizedBox(height: 15),
                                     const Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -1054,7 +1057,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       const Row(
                         children: [
                           Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
@@ -1072,44 +1075,6 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class featured_product extends StatelessWidget {
-  final String featuredImage;
-  final String featuredName;
-  final String featuredPrice;
-  const featured_product({
-    super.key, required this.featuredImage, required this.featuredName, required this.featuredPrice,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 5.0),
-          child: Container(
-            width: 300,
-            height: 200,
-            color: Colors.lightBlue[50],
-            child: Image.asset(featuredImage),
-          ),
-        ),
-         Text(featuredName),
-         Text('\$$featuredPrice', style: const TextStyle(fontWeight: FontWeight.w600),
-         ),
-        const Row(
-          children: [
-            Icon(Icons.favorite, size: 18,),
-            SizedBox(width: 10),
-            Icon(Icons.shopping_cart_checkout, size: 18,),
-            SizedBox(width: 10),
-            Icon(Icons.shopping_cart,size: 18,),
-          ],
-        )
-      ],
     );
   }
 }
