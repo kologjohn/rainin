@@ -14,6 +14,8 @@ class DesktopScaffold extends StatefulWidget {
 }
 
 class _DesktopScaffoldState extends State<DesktopScaffold> {
+  bool show=false;
+  bool editShow=true;
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -157,10 +159,102 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                       children: [
                         Expanded(
                             flex: 2,
-                            child: Container(color: Colors.lightBlue[50], height: 600,
-                              child: const Row(
+                            child: Container(color: Colors.white,
+                                height: 600,
+                              child: Column(
                                 children: [
-                                  SideBar()
+                                  GestureDetector(
+                                    onTap: ()async{
+                                      setState(() {
+                                        editShow=false;
+                                      });
+                                    },
+                                    onDoubleTap: (){
+                                      setState(() {
+                                        editShow=true;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 50,
+                                      color: Colors.orange,
+                                      child: const Padding(
+                                        padding: EdgeInsets.only(left: 18.0, right: 18),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(Icons.menu, color: Colors.white,),
+                                                Text(
+                                                  "ALL DEPARTMENTS",
+                                                  style: TextStyle(
+                                                      color: Colors.white
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.arrow_drop_down, size: 30, color: Colors.white,),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20.0,top: 20),
+                                    child: Visibility(
+                                      visible: editShow,
+                                      child: SizedBox(height: 350,
+                                        child: ListView(
+                                          scrollDirection: Axis.vertical,
+                                          children:  const [
+                                            MenuType(
+                                                isSelected: true,
+                                                coffeeType: "MEAT"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "VEGETABLES"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "ELECTRONICSS"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "FRUITS"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "FAST FOODS"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "BUTTER EGG"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "OCEAN FOODS"
+                                            ),
+                                            SizedBox(height: 20),
+                                            MenuType(
+                                                isSelected: false,
+                                                coffeeType: "FRESH BERRIES"
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               )
                             ),
@@ -168,85 +262,137 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         const SizedBox(width: 10),
                         Expanded(
                           flex: 5,
-                          child: Container(
-                            color: Colors.lightBlue[50],
-                            height: 600,
-                            child:  Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                 Row(
+                          child: Column(
+                            children: [
+                              Container(
+                                //color: Colors.orange,
+                                height: 60,
+                                child: Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 70.0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          const Text(
-                                              "FRUIT FRESH",
-                                            style: TextStyle(
-                                              color: Colors.orange,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 25
-                                            ),
-                                          ),
-                                          const SizedBox(height: 8),
-                                          const Text(
-                                              "VEGETABLE",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 40
-                                            ),
-                                          ),
-                                          const SizedBox(height: 5),
-                                          const Text(
-                                              "100% ORGANIC",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 40
-                                            ),
-                                          ),
-                                          const SizedBox(height: 8),
-                                          const Text(
-                                              "Free pickup delivery available",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 25
-                                            ),
-                                          ),
-                                          const SizedBox(height: 20),
-                                          ElevatedButton(
-                                            onPressed: (){},
-                                            style: ButtonStyle(
-                                              backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                                if (states.contains(MaterialState.pressed)) {
-                                                  return Colors.orange.withOpacity(0.5); // Color when pressed
-                                                }
-                                                return Colors.orange; // Default color
-                                              }),
-                                            ),
-                                            child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
-                                          )
-
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Column(
+                                    Row(
                                       children: [
-                                        Image.asset("assets/images/chair.png")
+                                        Expanded(
+                                            child: Container(
+                                              height: 50,
+                                              color: Colors.white,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text("All Categories"),
+                                                  Icon(Icons.arrow_drop_down)
+                                                ],
+                                              ),
+                                            )
+                                        ),
+                                        const Expanded(
+                                            flex: 2,
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                  hintText: 'What do you want?',
+                                                  fillColor: Colors.white,
+                                                  filled: true
+                                              ),
+                                            )
+                                        ),
+                                        Expanded(
+                                            child: Container(
+                                              height: 50,
+                                              color: Colors.orange,
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text("Search"),
+                                                ],
+                                              ),
+                                            )
+                                        ),
                                       ],
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(height: 40,),
+                              Container(
+                                color: Colors.lightBlue[50],
+                                height: 500,
+                                child:  Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                     Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 70.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              const Text(
+                                                  "FRUIT FRESH",
+                                                style: TextStyle(
+                                                  color: Colors.orange,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 25
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8),
+                                              const Text(
+                                                  "VEGETABLE",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 40
+                                                ),
+                                              ),
+                                              const SizedBox(height: 5),
+                                              const Text(
+                                                  "100% ORGANIC",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 40
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8),
+                                              const Text(
+                                                  "Free pickup delivery available",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 25
+                                                ),
+                                              ),
+                                              const SizedBox(height: 20),
+                                              ElevatedButton(
+                                                onPressed: (){},
+                                                style: ButtonStyle(
+                                                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                                                    if (states.contains(MaterialState.pressed)) {
+                                                      return Colors.orange.withOpacity(0.5); // Color when pressed
+                                                    }
+                                                    return Colors.orange; // Default color
+                                                  }),
+                                                ),
+                                                child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
+                                              )
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Image.asset("assets/images/chair.png",height: 400,)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -1016,7 +1162,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           const SizedBox(width: 8),
                           Expanded(
                               child: Container(
-                                height: 200,
+                                height: 250,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
@@ -1024,21 +1170,31 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     const SizedBox(height: 20),
                                     const Text("Get E-mail updates about our latest shop and special offers."),
                                     const SizedBox(height: 15),
-                                    SizedBox(
-                                      height: 40,
-                                      width: 300,
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                            prefixIcon: const Icon(Icons.search),
-                                            hintText: "Search...",
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(color: Colors.grey.shade600),
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(color: Colors.grey.shade600),
+                                    Row(
+                                      children: [
+                                        const Expanded(
+                                            flex: 2,
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                  hintText: 'Enter your mail',
+                                                  fillColor: Colors.white,
+                                                  filled: true
+                                              ),
                                             )
                                         ),
-                                      ),
+                                        Expanded(
+                                            child: Container(
+                                              height: 50,
+                                              color: Colors.orange,
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text("SUBSCRIBE"),
+                                                ],
+                                              ),
+                                            )
+                                        )
+                                      ],
                                     ),
                                     const SizedBox(height: 15),
                                     const Row(
@@ -1058,13 +1214,28 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         ],
                       ),
                       const Divider(),
-                      const Row(
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
-                          SizedBox(width: 10),
-                          Text('|'),
-                          SizedBox(width: 10),
-                          Text('Powered KologSoft', style: TextStyle(fontSize: 15)),
+                          Row(
+                            children: [
+                              Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
+                              SizedBox(width: 10),
+                              Text('|'),
+                              SizedBox(width: 10),
+                              Text('Powered By KologSoft', style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Image.asset("assets/images/visa1.png", height: 50,),
+                              SizedBox(width: 10),
+                              Image.asset("assets/images/PayPal.png", height: 50,),
+                              SizedBox(width: 10),
+                              Image.asset("assets/images/MasterCard1.png", height: 50,),
+                              //Image.asset("assets/images/payout.png", height: 100,)
+                            ],
+                          )
                         ],
                       )
                     ],

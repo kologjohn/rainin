@@ -12,6 +12,8 @@ class TabletScaffold extends StatefulWidget {
 }
 
 class _TabletScaffoldState extends State<TabletScaffold> {
+  bool show=false;
+  bool editShow=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,31 +106,43 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       Row(
                         children: [
                           Expanded(
-                              child: Container(
-                                color: Colors.orange,
-                                height: 50,
-                                child: const Padding(
-                                  padding: EdgeInsets.only(left: 18.0, right: 18),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.menu, color: Colors.white,),
-                                          Text(
-                                              "ALL DEPARTMENTS",
-                                            style: TextStyle(
-                                              color: Colors.white
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.arrow_drop_down, size: 30, color: Colors.white,),
-                                        ],
-                                      ),
-                                    ],
+                              child: GestureDetector(
+                                onTap: ()async{
+                                  setState(() {
+                                    show=true;
+                                  });
+                                },
+                                onDoubleTap: ()async{
+                                  setState(() {
+                                    show=false;
+                                  });
+                                },
+                                child: Container(
+                                  color: Colors.orange,
+                                  height: 50,
+                                  child: const Padding(
+                                    padding: EdgeInsets.only(left: 18.0, right: 18),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.menu, color: Colors.white,),
+                                            Text(
+                                                "ALL DEPARTMENTS",
+                                              style: TextStyle(
+                                                color: Colors.white
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.arrow_drop_down, size: 30, color: Colors.white,),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )
@@ -138,10 +152,47 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       Row(
                         children: [
                           Expanded(
-                              child: Container(
-                                height: 400,
-                                decoration: BoxDecoration(
-                                    color: Colors.lightBlue[50],
+                              child: Visibility(
+                                visible: show,
+                                child: Container(
+                                  height: 400,
+                                  decoration: BoxDecoration(
+                                      color: Colors.lightBlue[50],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20.0,top: 20),
+                                    child: SizedBox(height: 300,
+                                      child: ListView(
+                                        scrollDirection: Axis.vertical,
+                                        children:  const [
+                                          MenuType(
+                                              isSelected: true,
+                                              coffeeType: "HOME"
+                                          ),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "SHOP"
+                                          ),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "PAGES"
+                                          ),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "BLOG"
+                                          ),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "CONTACT"
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               )
                           )
@@ -902,7 +953,170 @@ class _TabletScaffoldState extends State<TabletScaffold> {
             Container(
               height: 400,
               color: Colors.lightGreen[50],
-            )
+              child:  Padding(
+                padding: const EdgeInsets.only(left: 100.0, right: 100, top: 50),
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                            child: Container(
+                              height: 200,
+                              //color: Colors.red,
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("RAIN INN MALL", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
+                                  SizedBox(height: 20),
+                                  Text("Address: Commercial Street, Bolgatanga"),
+                                  SizedBox(height: 15),
+                                  Text("Phone: +122 553 354 349"),
+                                  SizedBox(height: 15),
+                                  Text("Email: raininn@gmail.com"),
+                                ],
+                              ),
+                            )
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                            child: Container(
+                              height: 250,
+                              //color: Colors.red,
+                              child: const Padding(
+                                padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("USEFUL LINKS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25)),
+                                    SizedBox(height: 20),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("About Us"),
+                                        Text("Who We Are"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Secure Products"),
+                                        Text("Project"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("About Our Shop"),
+                                        Text("Our Services"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Privacy And Policy"),
+                                        Text("SiteMap"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Delivery Information"),
+                                        Text("Contact"),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                            child: Container(
+                              height: 250,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  const Text("JOIN OUR NEWSLETTER NOW", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25)),
+                                  const SizedBox(height: 20),
+                                  const Text("Get E-mail updates about our latest shop and special offers."),
+                                  const SizedBox(height: 15),
+                                  Row(
+                                    children: [
+                                      const Expanded(
+                                          flex: 2,
+                                          child: TextField(
+                                            decoration: InputDecoration(
+                                                hintText: 'Enter your mail',
+                                                fillColor: Colors.white,
+                                                filled: true
+                                            ),
+                                          )
+                                      ),
+                                      Expanded(
+                                          child: Container(
+                                            height: 50,
+                                            color: Colors.orange,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("SUBSCRIBE"),
+                                              ],
+                                            ),
+                                          )
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 15),
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Icon(Icons.facebook),
+                                      Icon(Icons.facebook),
+                                      Icon(Icons.facebook),
+                                      Icon(Icons.facebook)
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              //color: Colors.red,
+                            )
+                        ),
+                      ],
+                    ),
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
+                            SizedBox(width: 10),
+                            Text('|'),
+                            SizedBox(width: 10),
+                            Text('Powered By KologSoft', style: TextStyle(fontSize: 15)),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset("assets/images/visa1.png", height: 50,),
+                            SizedBox(width: 10),
+                            Image.asset("assets/images/PayPal.png", height: 50,),
+                            SizedBox(width: 10),
+                            Image.asset("assets/images/MasterCard1.png", height: 50,),
+                            //Image.asset("assets/images/payout.png", height: 100,)
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

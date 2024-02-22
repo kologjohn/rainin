@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raininn/widgets/drawer.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
 import '../widgets/menu_type.dart';
@@ -13,70 +14,99 @@ class MobileScaffold extends StatefulWidget {
 }
 
 class _MobileScaffoldState extends State<MobileScaffold> {
+  bool show=false;
+  bool editShow=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        //backgroundColor: Colors.orange,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: Text(
+              "RAININN MALL",
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600
+              ),
+            ),
+          ),
+        ],
+        //title: const Text("APPBAR"),
+      ),
+      drawer: const Drawer(
+        child: DrawerHeader(child: Text("Home")),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 50,
-              color: Colors.lightGreen[50],
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.email, size: 18,),
-                      SizedBox(width: 8,),
-                      Text("info@raininn.com"),
-                      SizedBox(width: 10),
-                      Icon(Icons.location_pin, size: 18,),
-                      SizedBox(width: 8),
-                      Text("Bolgatanga"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.facebook, size: 18,),
-                      SizedBox(width: 12,),
-                      Icon(Icons.facebook, size: 18,),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   height: 50,
+            //   color: Colors.lightGreen[50],
+            //   child: const Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     children: [
+            //       Row(
+            //         children: [
+            //           Icon(Icons.email, size: 18,),
+            //           SizedBox(width: 8,),
+            //           Text("info@raininn.com"),
+            //           SizedBox(width: 10),
+            //           Icon(Icons.location_pin, size: 18,),
+            //           SizedBox(width: 8),
+            //           Text("Bolgatanga"),
+            //         ],
+            //       ),
+            //       Row(
+            //         children: [
+            //           Icon(Icons.facebook, size: 18,),
+            //           SizedBox(width: 12,),
+            //           Icon(Icons.facebook, size: 18,),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
               child: Column(
                 children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                              child: Container(
-                                height: 50,
-                                //color: Colors.red,
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "RAININN MALL",
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w600
-                                      ),
-                                    ),
-                                    Icon(Icons.menu, size: 40,)
-                                  ],
-                                ),
-                              )
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                  // Column(
+                  //   children: [
+                  //     Row(
+                  //       children: [
+                  //         Expanded(
+                  //             child: Container(
+                  //               height: 50,
+                  //               //color: Colors.red,
+                  //               child:  Row(
+                  //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //                 children: [
+                  //                   const Text(
+                  //                     "RAININN MALL",
+                  //                     style: TextStyle(
+                  //                         fontSize: 25,
+                  //                         fontWeight: FontWeight.w600
+                  //                     ),
+                  //                   ),
+                  //                   InkWell(
+                  //                     onTap: (){
+                  //                       SideBar();
+                  //                       print("object");
+                  //                     },
+                  //                       child: const Icon(
+                  //                         Icons.menu, size: 40,
+                  //                       )
+                  //                   )
+                  //                 ],
+                  //               ),
+                  //             )
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ],
+                  // ),
                   const SizedBox(height: 20,),
                   const Column(
                     children: [
@@ -100,29 +130,95 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       Row(
                         children: [
                           Expanded(
-                              child: Container(
-                                color: Colors.orange,
-                                height: 50,
-                                child: const Padding(
-                                  padding: EdgeInsets.only(left: 8.0, right: 8),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              child: InkWell(
+                                onTap: ()async{
+                                  setState(() {
+                                    show=true;
+                                    print("success");
+                                  });
+                                },
+                                onDoubleTap: (){
+                                  setState(() {
+                                    show=false;
+                                  });
+                                },
+                                child: Container(
+                                  color: Colors.orange,
+                                  height: 50,
+                                  child: const Padding(
+                                    padding: EdgeInsets.only(left: 20.0, right: 20),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.menu, color: Colors.white,),
+                                            Text(
+                                              "ALL DEPARTMENTS",
+                                              style: TextStyle(
+                                                  color: Colors.white
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.arrow_drop_down, size: 30, color: Colors.white,),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                              child: Visibility(
+                                visible: show,
+                                child: Container(
+                                  height: 400,
+                                  decoration: BoxDecoration(
+                                    color: Colors.lightBlue[50],
+                                  ),
+                                  child: Column(
                                     children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.menu, color: Colors.white,),
-                                          Text(
-                                            "ALL DEPARTMENTS",
-                                            style: TextStyle(
-                                                color: Colors.white
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.arrow_drop_down, size: 30, color: Colors.white,),
-                                        ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 20.0,top: 20),
+                                        child: SizedBox(height: 300,
+                                          child: ListView(
+                                            scrollDirection: Axis.vertical,
+                                            children:  const [
+                                              MenuType(
+                                                  isSelected: true,
+                                                  coffeeType: "HOME"
+                                              ),
+                                              SizedBox(height: 20),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "SHOP"
+                                              ),
+                                              SizedBox(height: 20),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "PAGES"
+                                              ),
+                                              SizedBox(height: 20),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "BLOG"
+                                              ),
+                                              SizedBox(height: 20),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "CONTACT"
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -130,7 +226,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               )
                           )
                         ],
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20,),
@@ -288,43 +384,6 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                           slideName: "Stuffing Chair",
                           slidePrice: "500.00"
                       ),
-                      // child: ListView(
-                      //   addAutomaticKeepAlives: true,
-                      //   scrollDirection: Axis.horizontal,
-                      //   children: const [
-                      //
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //   ],
-                      // ),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -580,43 +639,6 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                                         ),
                                       ],
                                     ),
-                                    // child: ListView(
-                                    //   addAutomaticKeepAlives: true,
-                                    //   scrollDirection: Axis.horizontal,
-                                    //   children: const [
-                                    //
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //   ],
-                                    // ),
                                   ),
                                 ),
                               ],
@@ -874,8 +896,142 @@ class _MobileScaffoldState extends State<MobileScaffold> {
               ),
             ),
             Container(
-              height: 400,
+              height: 650,
               color: Colors.lightGreen[50],
+              child: Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("RAIN INN MALL", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
+                            SizedBox(height: 8),
+                            Text("Address: Commercial Street, Bolgatanga"),
+                            SizedBox(height: 6),
+                            Text("Phone: +122 553 354 349"),
+                            SizedBox(height: 6),
+                            Text("Email: raininn@gmail.com"),
+                          ],
+                        )
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("USEFUL LINKS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                        SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("About Us"),
+                            Text("Who We Are"),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Secure Products"),
+                            Text("Project"),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("About Our Shop"),
+                            Text("Our Services"),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Privacy And Policy"),
+                            Text("SiteMap"),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Delivery Information"),
+                            Text("Contact"),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("JOIN OUR NEWSLETTER NOW", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                        const SizedBox(height: 20),
+                        const Text("Get E-mail updates about our latest shop and special offers."),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Enter your mail',
+                                fillColor: Colors.white,
+                                filled: true
+                              ),
+                            )
+                        ),
+                        Expanded(
+                            child: Container(
+                              height: 50,
+                              color: Colors.orange,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("SUBSCRIBE"),
+                                ],
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 12,),
+                    Row(
+                      children: [
+                        Icon(Icons.facebook),
+                        Icon(Icons.facebook),
+                        Icon(Icons.facebook),
+                        Icon(Icons.facebook),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Divider(),
+                    Column(
+                      children: [
+                        Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
+                        SizedBox(width: 10),
+                        Text('Powered KologSoft', style: TextStyle(fontSize: 15)),
+                      ],
+                    ),
+                    SizedBox(height: 12,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/visa1.png", height: 50,),
+                        SizedBox(width: 10),
+                        Image.asset("assets/images/PayPal.png", height: 50,),
+                        SizedBox(width: 10),
+                        Image.asset("assets/images/MasterCard1.png", height: 50,),
+                        //Image.asset("assets/images/payout.png", height: 100,)
+                      ],
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         ),
