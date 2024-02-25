@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:raininn/widgets/drawer.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
@@ -36,7 +37,18 @@ class _MobileScaffoldState extends State<MobileScaffold> {
         //title: const Text("APPBAR"),
       ),
       drawer: const Drawer(
-        child: DrawerHeader(child: Text("Home")),
+        child: Column(
+          children: [
+            DrawerHeader(
+                child: Text("RAININN MALL"),
+            ),
+            Row(
+              children: [
+                Icon(Icons.favorite)
+              ],
+            )
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -1001,19 +1013,22 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                     SizedBox(height: 12,),
                     Row(
                       children: [
-                        Icon(Icons.facebook),
-                        Icon(Icons.facebook),
-                        Icon(Icons.facebook),
-                        Icon(Icons.facebook),
+                        SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
+                        const SizedBox(width: 18,),
+                        SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
+                        const SizedBox(width: 18,),
+                        SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                        const SizedBox(width: 18,),
+                        SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
                       ],
                     ),
                     SizedBox(height: 20),
                     Divider(),
                     Column(
                       children: [
-                        Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
+                        Text('Copyright ©2024 All rights reserved.', style: TextStyle(fontSize: 15),),
                         SizedBox(width: 10),
-                        Text('Powered KologSoft', style: TextStyle(fontSize: 15)),
+                        Text('Powered By KologSoft', style: TextStyle(fontSize: 15)),
                       ],
                     ),
                     SizedBox(height: 12,),

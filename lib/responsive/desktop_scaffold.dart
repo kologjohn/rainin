@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:raininn/widgets/drawer.dart';
 import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/featured_product.dart';
 class DesktopScaffold extends StatefulWidget {
@@ -28,30 +27,69 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
               Container(
                 height: 50,
                 color: Colors.lightGreen[50],
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.email, size: 18,),
-                        SizedBox(width: 8,),
-                        Text("info@raininn.com"),
-                        SizedBox(width: 10),
-                        Icon(Icons.location_pin, size: 18,),
-                        SizedBox(width: 8),
-                        Text("Along the commercial street, Bolgatanga"),
+                        const Icon(Icons.email, size: 18,),
+                        const SizedBox(width: 8,),
+                        const Text("info@raininn.com"),
+                        const SizedBox(width: 10),
+                        Container(
+                          height: 20,
+                          width: 1, // or any desired width
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(width: 10),
+                        const Icon(Icons.location_pin, size: 18,),
+                        const SizedBox(width: 8),
+                        const Text("Along the commercial street, Bolgatanga"),
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 12,),
-                        Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 12,),
-                        Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 12,),
-                        Icon(Icons.facebook, size: 18,),
-                        SizedBox(width: 12,),
+                        Row(
+                          children: [
+                            SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
+                            const SizedBox(width: 18,),
+                            SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
+                            const SizedBox(width: 18,),
+                            SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                            const SizedBox(width: 18,),
+                            SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Container(
+                          height: 20,
+                          width: 1, // or any desired width
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(width: 10),
+                        Row(
+                          children: [
+                            Image.asset("assets/images/ghana.png", height: 20, width: 20,),
+                            const SizedBox(width: 8),
+                            //SvgPicture.asset("assets/svg/gh.svg", width: 40, height: 20,),
+                            const Text("Ghana"),
+                            const Icon(Icons.keyboard_arrow_down)
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Container(
+                          height: 20,
+                          width: 1, // or any desired width
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(width: 10),
+                        const Row(
+                          children: [
+                            Icon(Icons.person),
+                            SizedBox(width: 8),
+                            Text("Login")
+                          ],
+                        )
                       ],
                     ),
                   ],
@@ -74,12 +112,12 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                       children: [
                         Row(
                           children: [
-                            Expanded(
+                            const Expanded(
                               flex: 2,
-                                child: Container(
+                                child: SizedBox(
                                   //color: Colors.lightBlue[50],
                                   height: 50,
-                                  child: const Column(
+                                  child: Column(
                                     children: [
                                       Row(
                                         //mainAxisAlignment: MainAxisAlignment.center,
@@ -93,55 +131,45 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 )),
                             const SizedBox(width: 10),
                             Expanded(
-                                flex: 5,
-                                child: Container(
+                                flex: 4,
+                                child: SizedBox(
                                     //color: Colors.lightBlue[50],
                                     height: 50,
                                   child:  Column(
                                     children: [
-                                      SizedBox(height: 50,
+                                      SizedBox(
+                                        height: 50,
                                         child: ListView(
                                           scrollDirection: Axis.horizontal,
                                           children:  const [
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
-                                                Row(
-                                                  children: [
-                                                  MenuType(
-                                                      isSelected: true,
-                                                      coffeeType: "HOME"
-                                                  ),
-                                                  SizedBox(width: 40),
-                                                  MenuType(
-                                                      isSelected: false,
-                                                      coffeeType: "SHOP"
-                                                  ),
-                                                  SizedBox(width: 40),
-                                                  MenuType(
-                                                      isSelected: false,
-                                                      coffeeType: "PAGES"
-                                                  ),
-                                                  SizedBox(width: 40),
-                                                  MenuType(
-                                                      isSelected: false,
-                                                      coffeeType: "BLOG"
-                                                  ),
-                                                  SizedBox(width: 40),
-                                                  MenuType(
-                                                      isSelected: false,
-                                                      coffeeType: "CONTACT"
-                                                  ),
+                                              MenuType(
+                                                  isSelected: true,
+                                                  coffeeType: "HOME"
+                                              ),
+                                              SizedBox(width: 40),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "SHOP"
+                                              ),
+                                              SizedBox(width: 40),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "PAGES"
+                                              ),
+                                              SizedBox(width: 40),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "BLOG"
+                                              ),
+                                              SizedBox(width: 40),
+                                              MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "CONTACT"
+                                              ),
 
-                                                ],
-                                                ),
-                                                SizedBox(width: 70,),
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.favorite),
-                                                  ],
-                                                ),
-                                              ],
+                                            ],
                                             ),
                                           ],
                                         ),
@@ -150,6 +178,20 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                   ),
                                 ),
                             ),
+                            const Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  //color: Colors.red,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(Icons.favorite),
+                                      Icon(Icons.shopping_cart),
+                                      Text("Item: 500")
+                                    ],
+                                  ),
+                                )
+                            )
                           ],
                         ),
                       ],
@@ -264,57 +306,83 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           flex: 5,
                           child: Column(
                             children: [
-                              Container(
-                                //color: Colors.orange,
-                                height: 60,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                            child: Container(
-                                              height: 50,
-                                              color: Colors.white,
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                          child: Container(
+                                            color: Colors.white,
+                                            height: 50,
+                                            child:  Padding(
+                                              padding: const EdgeInsets.only(left: 20.0, right: 20),
                                               child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
-                                                  Text("All Categories"),
-                                                  Icon(Icons.arrow_drop_down)
+                                                  Row(
+                                                    children: [
+                                                      const Text("All Categories", style: TextStyle(fontWeight: FontWeight.bold),),
+                                                      const SizedBox(width: 20),
+                                                      const Icon(Icons.arrow_drop_down),
+                                                      const SizedBox(width: 30),
+                                                      const SizedBox(
+                                                        height: 50,
+                                                        width: 300,
+                                                        child: Column(
+                                                          children: [
+                                                            TextField(
+                                                              decoration: InputDecoration(
+                                                                hintText: 'What do you need?',
+                                                                hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        height: 50,
+                                                        width: 100,
+                                                        color: Colors.orange,
+                                                        child: const Column(
+                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                          children: [
+                                                            Text("Search", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      CircleAvatar(
+                                                        backgroundColor: Colors.lightGreen[50],
+                                                        child: const Icon(
+                                                            Icons.call, color: Colors.orange,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(width: 12),
+                                                      const Column(
+                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                        children: [
+                                                          Text("+122 553 354 349", style: TextStyle(fontWeight: FontWeight.bold),),
+                                                          Text("support 24/7 time", style: TextStyle(color: Colors.black54),),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  )
                                                 ],
                                               ),
-                                            )
-                                        ),
-                                        const Expanded(
-                                            flex: 2,
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                  hintText: 'What do you want?',
-                                                  fillColor: Colors.white,
-                                                  filled: true
-                                              ),
-                                            )
-                                        ),
-                                        Expanded(
-                                            child: Container(
-                                              height: 50,
-                                              color: Colors.orange,
-                                              child: Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Text("Search"),
-                                                ],
-                                              ),
-                                            )
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                            ),
+                                          )
+                                      ),
+                                    ],
+                                  )
+                                ],
                               ),
-                              SizedBox(height: 40,),
+                              const SizedBox(height: 20,),
                               Container(
                                 color: Colors.lightBlue[50],
-                                height: 500,
+                                height: 530,
                                 child:  Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -465,7 +533,8 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           thickness: 5,
                         ),
                         SizedBox(height: 30),
-                        SizedBox(height: 50,
+                        SizedBox(
+                          height: 50,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             //scrollDirection: Axis.horizontal,
@@ -945,7 +1014,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               //color: Colors.red,
                               child: Column(
                                 children: [
-                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                   const SizedBox(height: 18),
                                   const Row(
                                     children: [
@@ -984,12 +1053,12 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         ),
                         const SizedBox(width: 8),
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                               height: 600,
                               //color: Colors.red,
                               child: Column(
                                 children: [
-                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                   const SizedBox(height: 18),
                                   const Row(
                                     children: [
@@ -1028,12 +1097,12 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         ),
                         const SizedBox(width: 8),
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                               height: 600,
                               //color: Colors.red,
                               child: Column(
                                 children: [
-                                  Container(child: Image.asset("assets/images/chair.png", height: 400,width: 400,), color: Colors.lightBlue[50],),
+                                  Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                   const SizedBox(height: 18),
                                   const Row(
                                     children: [
@@ -1085,11 +1154,11 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
-                              child: Container(
+                          const Expanded(
+                              child: SizedBox(
                                 height: 200,
                                 //color: Colors.red,
-                                child: const Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("RAIN INN MALL", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),),
@@ -1104,11 +1173,11 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               )
                           ),
                           const SizedBox(width: 8),
-                          Expanded(
-                              child: Container(
+                          const Expanded(
+                              child: SizedBox(
                                 height: 250,
                                 //color: Colors.red,
-                                child: const Padding(
+                                child: Padding(
                                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -1161,7 +1230,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           ),
                           const SizedBox(width: 8),
                           Expanded(
-                              child: Container(
+                              child: SizedBox(
                                 height: 250,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -1186,7 +1255,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                             child: Container(
                                               height: 50,
                                               color: Colors.orange,
-                                              child: Column(
+                                              child: const Column(
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text("SUBSCRIBE"),
@@ -1197,13 +1266,16 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                       ],
                                     ),
                                     const SizedBox(height: 15),
-                                    const Row(
+                                    Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Icon(Icons.facebook),
-                                        Icon(Icons.facebook),
-                                        Icon(Icons.facebook),
-                                        Icon(Icons.facebook)
+                                        SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
+                                        const SizedBox(width: 18,),
+                                        SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
+                                        const SizedBox(width: 18,),
+                                        SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                                        const SizedBox(width: 18,),
+                                        SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
                                       ],
                                     ),
                                   ],
@@ -1217,7 +1289,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                        Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
+                          const Row(
                             children: [
                               Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
                               SizedBox(width: 10),
@@ -1229,9 +1301,9 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           Row(
                             children: [
                               Image.asset("assets/images/visa1.png", height: 50,),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Image.asset("assets/images/PayPal.png", height: 50,),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Image.asset("assets/images/MasterCard1.png", height: 50,),
                               //Image.asset("assets/images/payout.png", height: 100,)
                             ],
