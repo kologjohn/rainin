@@ -36,16 +36,116 @@ class _MobileScaffoldState extends State<MobileScaffold> {
         ],
         //title: const Text("APPBAR"),
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         child: Column(
           children: [
-            DrawerHeader(
-                child: Text("RAININN MALL"),
+            const DrawerHeader(
+                child: Text(
+                  "RAININN MALL",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600
+                  ),
+                ),
             ),
-            Row(
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.favorite),
+                  SizedBox(width: 10),
+                  Icon(Icons.shopping_bag),
+                  SizedBox(width: 20),
+                  Text("Item:"),
+                  SizedBox(width: 10),
+                  Text("500.00"),
+                ],
+              ),
+            ),
+            //const SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset("assets/images/ghana.png", height: 20, width: 20,),
+                      const SizedBox(width: 8),
+                      const Text("Ghana"),
+                      const Icon(Icons.keyboard_arrow_down)
+                    ],
+                  ),
+                  const Row(
+                    children: [
+                      Icon(Icons.person),
+                      SizedBox(width: 8),
+                      Text("Login")
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 30),
+            const ExpansionTile(
+              leading: Icon(Icons.menu, color: Colors.white54,),
+                title: Text("MENU", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              collapsedIconColor: Colors.white54,
+              childrenPadding: EdgeInsets.only(left: 30),
+              collapsedBackgroundColor: Colors.black54,
+              backgroundColor: Colors.grey,
               children: [
-                Icon(Icons.favorite)
+                ListTile(
+                  title: MenuType(isSelected: true, coffeeType: 'HOME'),
+                ),
+                ListTile(
+                  title: MenuType(isSelected: false, coffeeType: 'SHOP'),
+                ),
+                ListTile(
+                  title: MenuType(isSelected: false, coffeeType: 'BLOG'),
+                ),
+                ListTile(
+                  title: MenuType(isSelected: false, coffeeType: 'CONTACT'),
+                ),
               ],
+            ),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
+                  const SizedBox(width: 18,),
+                  SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
+                  const SizedBox(width: 18,),
+                  SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                  const SizedBox(width: 18,),
+                  SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                ],
+              ),
+            ),
+           // const SizedBox(height: 15),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(Icons.email, size: 18,),
+                  SizedBox(width: 8,),
+                  Text("info@raininn.com"),
+                ],
+              ),
+            ),
+            //const SizedBox(height: 15),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(Icons.location_pin, size: 18,),
+                  SizedBox(width: 8),
+                  Text("Along the commercial street, Bolgatanga"),
+                ],
+              ),
             )
           ],
         ),
@@ -145,13 +245,16 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               child: InkWell(
                                 onTap: ()async{
                                   setState(() {
-                                    show=true;
-                                    print("success");
-                                  });
-                                },
-                                onDoubleTap: (){
-                                  setState(() {
-                                    show=false;
+                                    if(show==false)
+                                      {
+                                        show=true;
+                                      }
+                                    else if(show==true)
+                                    {
+                                      show=false;
+                                    }
+
+                                    //print("success");
                                   });
                                 },
                                 child: Container(
@@ -192,9 +295,9 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               child: Visibility(
                                 visible: show,
                                 child: Container(
-                                  height: 400,
-                                  decoration: BoxDecoration(
-                                    color: Colors.lightBlue[50],
+                                  height: 500,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
                                   ),
                                   child: Column(
                                     children: [
@@ -203,30 +306,52 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                                         child: SizedBox(height: 300,
                                           child: ListView(
                                             scrollDirection: Axis.vertical,
-                                            children:  const [
-                                              MenuType(
+                                            children:  [
+                                              const MenuType(
                                                   isSelected: true,
-                                                  coffeeType: "HOME"
+                                                  coffeeType: "MEAT"
                                               ),
-                                              SizedBox(height: 20),
-                                              MenuType(
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
                                                   isSelected: false,
-                                                  coffeeType: "SHOP"
+                                                  coffeeType: "VEGETABLES"
                                               ),
-                                              SizedBox(height: 20),
-                                              MenuType(
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
                                                   isSelected: false,
-                                                  coffeeType: "PAGES"
+                                                  coffeeType: "ELECTRONICSS"
                                               ),
-                                              SizedBox(height: 20),
-                                              MenuType(
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
                                                   isSelected: false,
-                                                  coffeeType: "BLOG"
+                                                  coffeeType: "FRUITS"
                                               ),
-                                              SizedBox(height: 20),
-                                              MenuType(
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
                                                   isSelected: false,
-                                                  coffeeType: "CONTACT"
+                                                  coffeeType: "FAST FOODS"
+                                              ),
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "BUTTER EGG"
+                                              ),
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "OCEAN FOODS"
+                                              ),
+                                              Divider(thickness: 1,color: Colors.grey[200],),
+                                              const SizedBox(height: 20),
+                                              const MenuType(
+                                                  isSelected: false,
+                                                  coffeeType: "FRESH BERRIES"
                                               ),
                                             ],
                                           ),
@@ -251,7 +376,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               child: TextField(
                                 decoration: InputDecoration(
                                     hintText: "What do you want?",
-                                    hintStyle: TextStyle(fontSize: 12, color: Colors.black54),
+                                    hintStyle: const TextStyle(fontSize: 12, color: Colors.black54),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Colors.grey.shade600),
                                     ),
@@ -265,10 +390,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               child: Container(
                                 color: Colors.orange,
                                 height: 55,
-                                child: Column(
+                                child: const Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Text("Search", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
+                                    Text("Search", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
                                   ],
                                 ),
                               )
@@ -284,12 +409,12 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                            child: Icon(
+                            child: const Icon(
                                 Icons.call
                             ),
                             backgroundColor: Colors.lightGreen[50],
                           ),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -911,10 +1036,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
               height: 650,
               color: Colors.lightGreen[50],
               child: Padding(
-                padding: EdgeInsets.only(left: 10.0, right: 10),
+                padding: const EdgeInsets.only(left: 10.0, right: 10),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -930,7 +1055,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         )
                       ],
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("USEFUL LINKS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
@@ -976,17 +1101,17 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         ),
                       ],
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("JOIN OUR NEWSLETTER NOW", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
-                        const SizedBox(height: 20),
-                        const Text("Get E-mail updates about our latest shop and special offers."),
+                        SizedBox(height: 20),
+                        Text("Get E-mail updates about our latest shop and special offers."),
                       ],
                     ),
                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 2,
                             child: TextField(
                               decoration: InputDecoration(
@@ -1000,7 +1125,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                             child: Container(
                               height: 50,
                               color: Colors.orange,
-                              child: Column(
+                              child: const Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text("SUBSCRIBE"),
@@ -1010,7 +1135,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         )
                       ],
                     ),
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
                     Row(
                       children: [
                         SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
@@ -1022,24 +1147,24 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Divider(),
-                    Column(
+                    const SizedBox(height: 20),
+                    const Divider(),
+                    const Column(
                       children: [
                         Text('Copyright ©2024 All rights reserved.', style: TextStyle(fontSize: 15),),
                         SizedBox(width: 10),
                         Text('Powered By KologSoft', style: TextStyle(fontSize: 15)),
                       ],
                     ),
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset("assets/images/visa1.png", height: 50,),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Image.asset("assets/images/PayPal.png", height: 50,),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Image.asset("assets/images/MasterCard1.png", height: 50,),
                         //Image.asset("assets/images/payout.png", height: 100,)
                       ],

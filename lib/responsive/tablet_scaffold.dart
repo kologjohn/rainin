@@ -68,11 +68,13 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                        "RAININN MALL",
-                                      style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w600
+                                    Flexible(
+                                      child: Text(
+                                          "RAININN MALL",
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w600
+                                        ),
                                       ),
                                     ),
                                     Icon(Icons.menu, size: 40,)
@@ -110,12 +112,15 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                               child: GestureDetector(
                                 onTap: ()async{
                                   setState(() {
-                                    show=true;
-                                  });
-                                },
-                                onDoubleTap: ()async{
-                                  setState(() {
-                                    show=false;
+                                    if(show==false)
+                                    {
+                                      show=true;
+                                    }
+                                    else if(show==true)
+                                    {
+                                      show=false;
+                                    }
+                                    //show=true;
                                   });
                                 },
                                 child: Container(
@@ -158,37 +163,59 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                 child: Container(
                                   height: 400,
                                   decoration: BoxDecoration(
-                                      color: Colors.lightBlue[50],
+                                      color: Colors.white,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 20.0,top: 20),
                                     child: SizedBox(height: 300,
                                       child: ListView(
                                         scrollDirection: Axis.vertical,
-                                        children:  const [
+                                        children:  [
                                           MenuType(
                                               isSelected: true,
-                                              coffeeType: "HOME"
+                                              coffeeType: "MEAT"
                                           ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
                                           SizedBox(height: 20),
                                           MenuType(
                                               isSelected: false,
-                                              coffeeType: "SHOP"
+                                              coffeeType: "VEGETABLES"
                                           ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
                                           SizedBox(height: 20),
                                           MenuType(
                                               isSelected: false,
-                                              coffeeType: "PAGES"
+                                              coffeeType: "ELECTRONICSS"
                                           ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
                                           SizedBox(height: 20),
                                           MenuType(
                                               isSelected: false,
-                                              coffeeType: "BLOG"
+                                              coffeeType: "FRUITS"
                                           ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
                                           SizedBox(height: 20),
                                           MenuType(
                                               isSelected: false,
-                                              coffeeType: "CONTACT"
+                                              coffeeType: "FAST FOODS"
+                                          ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "BUTTER EGG"
+                                          ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "OCEAN FOODS"
+                                          ),
+                                          Divider(thickness: 1,color: Colors.grey[200],),
+                                          SizedBox(height: 20),
+                                          MenuType(
+                                              isSelected: false,
+                                              coffeeType: "FRESH BERRIES"
                                           ),
                                         ],
                                       ),
