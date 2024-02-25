@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:raininn/widgets/tablet_featured_product.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../widgets/menu_type.dart';
@@ -20,38 +21,38 @@ class _TabletScaffoldState extends State<TabletScaffold> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 50,
-              color: Colors.lightGreen[50],
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.email, size: 18,),
-                      SizedBox(width: 8,),
-                      Text("info@raininn.com"),
-                      SizedBox(width: 10),
-                      Icon(Icons.location_pin, size: 18,),
-                      SizedBox(width: 8),
-                      Text("Along the commercial street, Bolgatanga"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.facebook, size: 18,),
-                      SizedBox(width: 12,),
-                      Icon(Icons.facebook, size: 18,),
-                      SizedBox(width: 12,),
-                      Icon(Icons.facebook, size: 18,),
-                      SizedBox(width: 12,),
-                      Icon(Icons.facebook, size: 18,),
-                      SizedBox(width: 12,),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   height: 50,
+            //   color: Colors.lightGreen[50],
+            //   child: const Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     children: [
+            //       Row(
+            //         children: [
+            //           Icon(Icons.email, size: 18,),
+            //           SizedBox(width: 8,),
+            //           Text("info@raininn.com"),
+            //           SizedBox(width: 10),
+            //           Icon(Icons.location_pin, size: 18,),
+            //           SizedBox(width: 8),
+            //           Text("Along the commercial street, Bolgatanga"),
+            //         ],
+            //       ),
+            //       Row(
+            //         children: [
+            //           Icon(Icons.facebook, size: 18,),
+            //           SizedBox(width: 12,),
+            //           Icon(Icons.facebook, size: 18,),
+            //           SizedBox(width: 12,),
+            //           Icon(Icons.facebook, size: 18,),
+            //           SizedBox(width: 12,),
+            //           Icon(Icons.facebook, size: 18,),
+            //           SizedBox(width: 12,),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(left: 100.0, right: 100),
               child: Column(
@@ -207,7 +208,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                         children: [
                           Expanded(
                               child: Container(
-                                color: Colors.lightBlue[50],
+                                color: Colors.white,
                                 height: 60,
                                 child:  Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -216,10 +217,10 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                       children: [
                                         const Text("All Categories"),
                                         const Icon(Icons.arrow_drop_down),
-                                        const SizedBox(width: 10),
+                                        const SizedBox(width: 30),
                                         const SizedBox(
                                           height: 50,
-                                          width: 200,
+                                          width: 300,
                                           child: Column(
                                             children: [
                                               TextField(
@@ -248,7 +249,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                       children: [
                                         CircleAvatar(
                                             child: const Icon(
-                                                Icons.call
+                                                Icons.call, color: Colors.orange,
                                             ),
                                           backgroundColor: Colors.lightGreen[50],
                                         ),
@@ -1072,13 +1073,16 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                     ],
                                   ),
                                   const SizedBox(height: 15),
-                                  const Row(
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Icon(Icons.facebook),
-                                      Icon(Icons.facebook),
-                                      Icon(Icons.facebook),
-                                      Icon(Icons.facebook)
+                                      SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
+                                      const SizedBox(width: 18,),
+                                      SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
+                                      const SizedBox(width: 18,),
+                                      SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                                      const SizedBox(width: 18,),
+                                      SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
                                     ],
                                   ),
                                 ],
