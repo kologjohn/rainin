@@ -11,6 +11,8 @@ class featured_product extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: 5.0),
@@ -25,6 +27,7 @@ class featured_product extends StatelessWidget {
         Text('\$$featuredPrice', style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.favorite, size: 18,),
             SizedBox(width: 10),

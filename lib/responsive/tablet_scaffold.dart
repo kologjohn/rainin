@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:raininn/widgets/tablet_featured_product.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+import '../widgets/featured_product.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/slide_tile.dart';
 
@@ -162,7 +163,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                 visible: show,
                                 child: Container(
                                   height: 400,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       color: Colors.white,
                                   ),
                                   child: Padding(
@@ -171,49 +172,49 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                       child: ListView(
                                         scrollDirection: Axis.vertical,
                                         children:  [
-                                          MenuType(
+                                          const MenuType(
                                               isSelected: true,
                                               coffeeType: "MEAT"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "VEGETABLES"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "ELECTRONICSS"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "FRUITS"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "FAST FOODS"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "BUTTER EGG"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "OCEAN FOODS"
                                           ),
                                           Divider(thickness: 1,color: Colors.grey[200],),
-                                          SizedBox(height: 20),
-                                          MenuType(
+                                          const SizedBox(height: 20),
+                                          const MenuType(
                                               isSelected: false,
                                               coffeeType: "FRESH BERRIES"
                                           ),
@@ -487,49 +488,18 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       ),
                     ],
                   ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
-                      SizedBox(width: 10),
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
-                      SizedBox(width: 10),
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
-                      SizedBox(width: 10),
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
-                      SizedBox(width: 10),
-                      TabletFeaturedProduct(
-                          featuredImage: 'assets/images/chair.png',
-                          featuredName: 'Stuffing Chair',
-                          featuredPrice: '400.00'
-                      ),
+                      GridView.builder(
+                          shrinkWrap: true,
+                          itemCount: 6,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 8),
+                          itemBuilder: (context, index)=>const featured_product(
+                              featuredImage: 'assets/images/chair.png',
+                              featuredName: 'Stuffing Chair',
+                              featuredPrice: '400.00'),
+                      )
                     ],
                   ),
                   const SizedBox(height: 50),
@@ -1089,7 +1059,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                           child: Container(
                                             height: 50,
                                             color: Colors.orange,
-                                            child: Column(
+                                            child: const Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 Text("SUBSCRIBE"),
@@ -1123,7 +1093,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
+                        const Row(
                           children: [
                             Text('Copyright ©2024 All rights reserved', style: TextStyle(fontSize: 15),),
                             SizedBox(width: 10),
@@ -1135,9 +1105,9 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                         Row(
                           children: [
                             Image.asset("assets/images/visa1.png", height: 50,),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Image.asset("assets/images/PayPal.png", height: 50,),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Image.asset("assets/images/MasterCard1.png", height: 50,),
                             //Image.asset("assets/images/payout.png", height: 100,)
                           ],
