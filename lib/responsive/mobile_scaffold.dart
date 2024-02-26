@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:raininn/widgets/drawer.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
 import '../widgets/menu_type.dart';
@@ -41,7 +40,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
           children: [
             const DrawerHeader(
                 child: Text(
-                  "RAININN MALL",
+                  "RAIN INN MALL",
                   style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w600
@@ -87,7 +86,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             const ExpansionTile(
               leading: Icon(Icons.menu, color: Colors.white54,),
                 title: Text("MENU", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
@@ -110,7 +109,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -143,7 +142,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                 children: [
                   Icon(Icons.location_pin, size: 18,),
                   SizedBox(width: 8),
-                  Text("Along the commercial street, Bolgatanga"),
+                  Text("Along the commercial street, Bolga"),
                 ],
               ),
             )
@@ -371,35 +370,30 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                     children: [
                       Row(
                         children: [
-                          Expanded(
-                            flex: 2,
+                          const Expanded(
+                              flex: 2,
                               child: TextField(
                                 decoration: InputDecoration(
-                                    hintText: "What do you want?",
-                                    hintStyle: const TextStyle(fontSize: 12, color: Colors.black54),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.grey.shade600),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.grey.shade600),
-                                    )
+                                    hintText: 'What do you want?',
+                                    fillColor: Colors.white,
+                                    filled: true
                                 ),
                               )
                           ),
                           Expanded(
                               child: Container(
+                                height: 50,
                                 color: Colors.orange,
-                                height: 55,
                                 child: const Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text("Search", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
+                                    Text("SEARCH"),
                                   ],
                                 ),
                               )
                           )
                         ],
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20,),
@@ -409,10 +403,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
+                            backgroundColor: Colors.lightGreen[50],
                             child: const Icon(
                                 Icons.call
                             ),
-                            backgroundColor: Colors.lightGreen[50],
                           ),
                           const SizedBox(width: 12),
                           const Column(
