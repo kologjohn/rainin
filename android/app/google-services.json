@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "121429825603",
+    "project_id": "raininmall",
+    "storage_bucket": "raininmall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121429825603:android:f23709cb6e886bf3259cf6",
+        "android_client_info": {
+          "package_name": "com.kologsoft.com.raininn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIhgF4tKKoU0LDUtNRknYZLvo4lsTrc-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
