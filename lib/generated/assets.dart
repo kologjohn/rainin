@@ -13,7 +13,9 @@ class Assets {
   static const String imagesPayout = 'assets/images/payout.png';
   static const String imagesVisa = 'assets/images/visa.jpg';
   static const String imagesVisa1 = 'assets/images/visa1.png';
+  static const String svgFLogo = 'assets/svg/f_logo.svg';
   static const String svgFacebook = 'assets/svg/facebook.svg';
+  static const String svgGLogo = 'assets/svg/g_logo.svg';
   static const String svgGh = 'assets/svg/gh.svg';
   static const String svgLinkedin = 'assets/svg/linkedin.svg';
   static const String svgPinterest = 'assets/svg/pinterest.svg';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:raininn/forms/login.dart';
+import 'package:raininn/forms/signup.dart';
 import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
@@ -411,84 +413,87 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     ],
                                   ),
                                   const SizedBox(height: 20,),
-                                  Container(
-                                    color: Colors.lightBlue[50],
-                                    height: 530,
-                                    child:  Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(left: 70.0),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  const Text(
-                                                    "FRUIT FRESH",
-                                                    style: TextStyle(
-                                                        color: Colors.orange,
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 25
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0),
+                                    child: Container(
+                                      color: Colors.lightBlue[50],
+                                      height: 530,
+                                      child:  Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(left: 70.0),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    const Text(
+                                                      "FRUIT FRESH",
+                                                      style: TextStyle(
+                                                          color: Colors.orange,
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 25
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(height: 8),
-                                                  const Text(
-                                                    "VEGETABLE",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 40
+                                                    const SizedBox(height: 8),
+                                                    const Text(
+                                                      "VEGETABLE",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 40
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(height: 5),
-                                                  const Text(
-                                                    "100% ORGANIC",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 40
+                                                    const SizedBox(height: 5),
+                                                    const Text(
+                                                      "100% ORGANIC",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 40
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(height: 8),
-                                                  const Text(
-                                                    "Free pickup delivery available",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 25
+                                                    const SizedBox(height: 8),
+                                                    const Text(
+                                                      "Free pickup delivery available",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 25
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(height: 20),
-                                                  ElevatedButton(
-                                                    onPressed: (){},
-                                                    style: ButtonStyle(
-                                                      backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                                        if (states.contains(MaterialState.pressed)) {
-                                                          return Colors.orange.withOpacity(0.5); // Color when pressed
-                                                        }
-                                                        return Colors.orange; // Default color
-                                                      }),
-                                                    ),
-                                                    child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
-                                                  )
+                                                    const SizedBox(height: 20),
+                                                    ElevatedButton(
+                                                      onPressed: (){},
+                                                      style: ButtonStyle(
+                                                        backgroundColor: MaterialStateProperty.resolveWith((states) {
+                                                          if (states.contains(MaterialState.pressed)) {
+                                                            return Colors.orange.withOpacity(0.5); // Color when pressed
+                                                          }
+                                                          return Colors.orange; // Default color
+                                                        }),
+                                                      ),
+                                                      child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
+                                                    )
 
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  Image.asset("assets/images/chair.png",height: 400,)
                                                 ],
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Column(
-                                              children: [
-                                                Image.asset("assets/images/chair.png",height: 400,)
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -631,131 +636,137 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         Row(
                           children: [
                             Expanded(
-                                child: Container(
-                                  height: 300,
-                                  color: Colors.lightBlue[50],
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Column(
-                                            children: [
-                                              Image.asset("assets/images/chair.png", height: 300, width: 300,)
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(right: 20.0),
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Container(
+                                    height: 300,
+                                    color: Colors.lightBlue[50],
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Column(
                                               children: [
-                                                const Text(
-                                                  "SUMMER FRUIT",
-                                                  style: TextStyle(
-                                                      color: Colors.orange,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 20
-                                                  ),
-                                                ),
-                                                //const SizedBox(height: 8),
-                                                const Text(
-                                                  "100% Pure Natural Fruit",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 20
-                                                  ),
-                                                ),
-                                                //const SizedBox(height: 20),
-                                                ElevatedButton(
-                                                  onPressed: (){},
-                                                  style: ButtonStyle(
-                                                    backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                                      if (states.contains(MaterialState.pressed)) {
-                                                        return Colors.orange.withOpacity(0.5); // Color when pressed
-                                                      }
-                                                      return Colors.orange; // Default color
-                                                    }),
-                                                  ),
-                                                  child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
-                                                )
-
+                                                Image.asset("assets/images/chair.png", height: 300, width: 300,)
                                               ],
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(right: 20.0),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const Text(
+                                                    "SUMMER FRUIT",
+                                                    style: TextStyle(
+                                                        color: Colors.orange,
+                                                        fontWeight: FontWeight.w600,
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
+                                                  //const SizedBox(height: 8),
+                                                  const Text(
+                                                    "100% Pure Natural Fruit",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
+                                                  //const SizedBox(height: 20),
+                                                  ElevatedButton(
+                                                    onPressed: (){},
+                                                    style: ButtonStyle(
+                                                      backgroundColor: MaterialStateProperty.resolveWith((states) {
+                                                        if (states.contains(MaterialState.pressed)) {
+                                                          return Colors.orange.withOpacity(0.5); // Color when pressed
+                                                        }
+                                                        return Colors.orange; // Default color
+                                                      }),
+                                                    ),
+                                                    child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
+                                                  )
+
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 )
                             ),
                             const SizedBox(width: 20),
                             Expanded(
-                                child: Container(
-                                  height: 300,
-                                  color: Colors.lightGreen[50],
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Column(
-                                            children: [
-                                              Image.asset("assets/images/chair.png", height: 300, width: 300,)
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(right: 20.0),
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 8.0,),
+                                  child: Container(
+                                    height: 300,
+                                    color: Colors.lightGreen[50],
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Column(
                                               children: [
-                                                const Text(
-                                                  "SUMMER FRUIT",
-                                                  style: TextStyle(
-                                                      color: Colors.orange,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 20
-                                                  ),
-                                                ),
-                                                //const SizedBox(height: 8),
-                                                const Text(
-                                                  "100% Pure Natural Fruit",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 20
-                                                  ),
-                                                ),
-                                                //const SizedBox(height: 20),
-                                                ElevatedButton(
-                                                  onPressed: (){},
-                                                  style: ButtonStyle(
-                                                    backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                                      if (states.contains(MaterialState.pressed)) {
-                                                        return Colors.orange.withOpacity(0.5); // Color when pressed
-                                                      }
-                                                      return Colors.orange; // Default color
-                                                    }),
-                                                  ),
-                                                  child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
-                                                )
-
+                                                Image.asset("assets/images/chair.png", height: 300, width: 300,)
                                               ],
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(right: 20.0),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const Text(
+                                                    "SUMMER FRUIT",
+                                                    style: TextStyle(
+                                                        color: Colors.orange,
+                                                        fontWeight: FontWeight.w600,
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
+                                                  //const SizedBox(height: 8),
+                                                  const Text(
+                                                    "100% Pure Natural Fruit",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
+                                                  //const SizedBox(height: 20),
+                                                  ElevatedButton(
+                                                    onPressed: (){},
+                                                    style: ButtonStyle(
+                                                      backgroundColor: MaterialStateProperty.resolveWith((states) {
+                                                        if (states.contains(MaterialState.pressed)) {
+                                                          return Colors.orange.withOpacity(0.5); // Color when pressed
+                                                        }
+                                                        return Colors.orange; // Default color
+                                                      }),
+                                                    ),
+                                                    child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
+                                                  )
+                                  
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 )
                             )
@@ -1034,37 +1045,46 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     children: [
                                       Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                       const SizedBox(height: 18),
-                                      const Row(
-                                        children: [
-                                          Icon(Icons.calendar_today, size: 18,),
-                                          SizedBox(width: 4),
-                                          Text("February 18, 2024"),
-                                          SizedBox(width: 20),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.comment, size: 18,),
-                                              SizedBox(width: 4),
-                                              Text("10")
-                                            ],
-                                          ),
-                                        ],
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.calendar_today, size: 18,),
+                                            SizedBox(width: 4),
+                                            Text("February 18, 2024"),
+                                            SizedBox(width: 20),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.comment, size: 18,),
+                                                SizedBox(width: 4),
+                                                Text("10")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-                                        ],
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("Stuffing is the soft material inside pillows, "
-                                              "\n mattresses, or sofa cushions. Without stuffing, "
-                                              "\n your comfy chair wouldn't be very comfy.",
-                                            style: TextStyle(color: Colors.black54),
-                                          ),
-                                        ],
-                                      )
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("Stuffing is the soft material inside pillows, "
+                                                "\n mattresses, or sofa cushions. Without stuffing, "
+                                                "\n your comfy chair wouldn't be very comfy.",
+                                              style: TextStyle(color: Colors.black54),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 )
@@ -1078,37 +1098,46 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     children: [
                                       Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                       const SizedBox(height: 18),
-                                      const Row(
-                                        children: [
-                                          Icon(Icons.calendar_today, size: 18,),
-                                          SizedBox(width: 4),
-                                          Text("February 18, 2024"),
-                                          SizedBox(width: 20),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.comment, size: 18,),
-                                              SizedBox(width: 4),
-                                              Text("10")
-                                            ],
-                                          ),
-                                        ],
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.calendar_today, size: 18,),
+                                            SizedBox(width: 4),
+                                            Text("February 18, 2024"),
+                                            SizedBox(width: 20),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.comment, size: 18,),
+                                                SizedBox(width: 4),
+                                                Text("10")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-                                        ],
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("Stuffing is the soft material inside pillows, "
-                                              "\n mattresses, or sofa cushions. Without stuffing, "
-                                              "\n your comfy chair wouldn't be very comfy.",
-                                            style: TextStyle(color: Colors.black54),
-                                          ),
-                                        ],
-                                      )
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("Stuffing is the soft material inside pillows, "
+                                                "\n mattresses, or sofa cushions. Without stuffing, "
+                                                "\n your comfy chair wouldn't be very comfy.",
+                                              style: TextStyle(color: Colors.black54),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 )
@@ -1122,42 +1151,55 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     children: [
                                       Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 400,width: 400,),),
                                       const SizedBox(height: 18),
-                                      const Row(
-                                        children: [
-                                          Icon(Icons.calendar_today, size: 18,),
-                                          SizedBox(width: 4),
-                                          Text("February 18, 2024"),
-                                          SizedBox(width: 20),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.comment, size: 18,),
-                                              SizedBox(width: 4),
-                                              Text("10")
-                                            ],
-                                          ),
-                                        ],
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.calendar_today, size: 18,),
+                                            SizedBox(width: 4),
+                                            Text("February 18, 2024"),
+                                            SizedBox(width: 20),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.comment, size: 18,),
+                                                SizedBox(width: 4),
+                                                Text("10")
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-                                        ],
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("COMFORTABLE STUFFING CHAIRS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                                          ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 20),
-                                      const Row(
-                                        children: [
-                                          Text("Stuffing is the soft material inside pillows, "
-                                              "\n mattresses, or sofa cushions. Without stuffing, "
-                                              "\n your comfy chair wouldn't be very comfy.",
-                                            style: TextStyle(color: Colors.black54),
-                                          ),
-                                        ],
-                                      )
+                                      const SizedBox(height: 15),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Row(
+                                          children: [
+                                            Text("Stuffing is the soft material inside pillows, "
+                                                "\n mattresses, or sofa cushions. Without stuffing, "
+                                                "\n your comfy chair wouldn't be very comfy.",
+                                              style: TextStyle(color: Colors.black54),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 )
                             ),
                           ],
+                        ),
+                        Divider(
+                          thickness: 10,
+                          color: Colors.grey[200],
                         ),
                       ],
                     ),
@@ -1292,9 +1334,19 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                         const SizedBox(width: 18,),
                                         SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
                                         const SizedBox(width: 18,),
-                                        SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                                        GestureDetector(
+                                            child: SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
+                                          onTap: (){
+                                              signup(context);
+                                          },
+                                        ),
                                         const SizedBox(width: 18,),
-                                        SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                                        GestureDetector(
+                                            child: SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                                          onTap: (){
+                                              signin(context);
+                                          },
+                                        ),
                                       ],
                                     ),
                                   ],
