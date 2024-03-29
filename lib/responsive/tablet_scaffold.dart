@@ -5,6 +5,7 @@ import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../widgets/featured_product.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/slide_tile.dart';
+import '../widgets/social_media_icons.dart';
 
 class TabletScaffold extends StatefulWidget {
   const TabletScaffold({super.key});
@@ -1070,18 +1071,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                     ],
                                   ),
                                   const SizedBox(height: 15),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
-                                      const SizedBox(width: 18,),
-                                      SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
-                                      const SizedBox(width: 18,),
-                                      SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
-                                      const SizedBox(width: 18,),
-                                      SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
-                                    ],
-                                  ),
+                                  const SocialMediaIcons(),
                                 ],
                               ),
                               //color: Colors.red,

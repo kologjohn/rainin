@@ -17,6 +17,10 @@ class Assets {
   static const String svgFacebook = 'assets/svg/facebook.svg';
   static const String svgGLogo = 'assets/svg/g_logo.svg';
   static const String svgGh = 'assets/svg/gh.svg';
+  static const String svgIcons8Facebook = 'assets/svg/icons8-facebook.svg';
+  static const String svgIcons8Linkedin = 'assets/svg/icons8-linkedin.svg';
+  static const String svgIcons8Pinterest = 'assets/svg/icons8-pinterest.svg';
+  static const String svgIcons8Twitter = 'assets/svg/icons8-twitter.svg';
   static const String svgLinkedin = 'assets/svg/linkedin.svg';
   static const String svgPinterest = 'assets/svg/pinterest.svg';
   static const String svgTwitter = 'assets/svg/twitter.svg';
