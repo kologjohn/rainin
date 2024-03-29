@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:raininn/widgets/social_media_icons.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../forms/login.dart';
 import '../forms/signup.dart';
@@ -117,17 +118,12 @@ class _MobileScaffoldState extends State<MobileScaffold> {
               ],
             ),
             const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
-                  const SizedBox(width: 18,),
-                  SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
-                  const SizedBox(width: 18,),
-                  SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
-                  const SizedBox(width: 18,),
-                  SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                  SocialMediaIcons(),
                 ],
               ),
             ),
@@ -1117,15 +1113,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       ],
                     ),
                     const SizedBox(height: 12,),
-                    Row(
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
-                        const SizedBox(width: 18,),
-                        SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
-                        const SizedBox(width: 18,),
-                        SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
-                        const SizedBox(width: 18,),
-                        SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
+                        SocialMediaIcons(),
                       ],
                     ),
                     const SizedBox(height: 20),

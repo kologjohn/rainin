@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:raininn/forms/login.dart';
-import 'package:raininn/forms/signup.dart';
 import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../widgets/featured_product.dart';
+import '../widgets/social_media_icons.dart';
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
 
@@ -51,17 +48,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                     ),
                     Row(
                       children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
-                            const SizedBox(width: 18,),
-                            SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
-                            const SizedBox(width: 18,),
-                            SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
-                            const SizedBox(width: 18,),
-                            SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
-                          ],
-                        ),
+                        const SocialMediaIcons(),
                         const SizedBox(width: 10),
                         Container(
                           height: 20,
@@ -210,7 +197,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           children: [
                             Expanded(
                               flex: 2,
-                              child: Container(
+                              child: SizedBox(
                                 //color: Colors.white,
                                   height: 600,
                                   child: Column(
@@ -1225,7 +1212,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           ],
                         ),
                         Divider(
-                          thickness: 10,
+                          thickness: 20,
                           color: Colors.grey[200],
                         ),
                       ],
@@ -1354,28 +1341,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                       ],
                                     ),
                                     const SizedBox(height: 15),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        SvgPicture.asset("assets/svg/facebook.svg", width: 20, height: 20,),
-                                        const SizedBox(width: 18,),
-                                        SvgPicture.asset("assets/svg/twitterbird.svg", width: 20, height: 20,),
-                                        const SizedBox(width: 18,),
-                                        GestureDetector(
-                                            child: SvgPicture.asset("assets/svg/linkedin.svg", width: 20, height: 20,),
-                                          onTap: (){
-                                              signup(context);
-                                          },
-                                        ),
-                                        const SizedBox(width: 18,),
-                                        GestureDetector(
-                                            child: SvgPicture.asset("assets/svg/pinterest.svg", width: 20, height: 20,),
-                                          onTap: (){
-                                              signin(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
+                                    const SocialMediaIcons(),
                                   ],
                                 ),
                                 //color: Colors.red,
@@ -1419,3 +1385,4 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
     );
   }
 }
+
