@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+import '../forms/login.dart';
+import '../forms/signup.dart';
 import '../widgets/featured_product.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/slide_tile.dart';
@@ -76,12 +78,17 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       const Icon(Icons.keyboard_arrow_down)
                     ],
                   ),
-                  const Row(
-                    children: [
-                      Icon(Icons.person),
-                      SizedBox(width: 8),
-                      Text("Login")
-                    ],
+                  InkWell(
+                    onTap: (){
+                      signin(context);
+                    },
+                    child: const Row(
+                      children: [
+                        Icon(Icons.person),
+                        SizedBox(width: 8),
+                        Text("Login")
+                      ],
+                    ),
                   )
                 ],
               ),

@@ -40,7 +40,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         const SizedBox(width: 10),
                         Container(
                           height: 20,
-                          width: 1,
+                          width: 1, // or any desired width
                           color: Colors.grey,
                         ),
                         const SizedBox(width: 10),
@@ -65,7 +65,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         const SizedBox(width: 10),
                         Container(
                           height: 20,
-                          width: 1,
+                          width: 1, // or any desired width
                           color: Colors.grey,
                         ),
                         const SizedBox(width: 10),
@@ -73,14 +73,15 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                           children: [
                             Image.asset("assets/images/ghana.png", height: 20, width: 20,),
                             const SizedBox(width: 8),
+                            //SvgPicture.asset("assets/svg/gh.svg", width: 40, height: 20,),
                             const Text("Ghana"),
-                            const Icon(Icons.keyboard_arrow_down, color: Colors.grey,)
+                            const Icon(Icons.keyboard_arrow_down)
                           ],
                         ),
                         const SizedBox(width: 10),
                         Container(
                           height: 20,
-                          width: 1,
+                          width: 1, // or any desired width
                           color: Colors.grey,
                         ),
                         const SizedBox(width: 10),
@@ -129,18 +130,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                                 //mainAxisAlignment: MainAxisAlignment.center,
                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: [
-                                                  Expanded(
-                                                      child: Padding(
-                                                        padding: EdgeInsets.only(left: 20.0),
-                                                        child: Text(
-                                                          "RAIN INN MALL",
-                                                          style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontWeight: FontWeight.bold
-                                                          ),
-                                                        ),
-                                                      )
-                                                  )
+                                                  Expanded(child: Text("RAIN INN MALL", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),))
                                                 ],
                                               ),
                                             )
@@ -279,49 +269,49 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                             child: ListView(
                                               scrollDirection: Axis.vertical,
                                               children:   [
-                                                const MenuType(
+                                                MenuType(
                                                     isSelected: true,
                                                     coffeeType: "MEAT"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "VEGETABLES"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "ELECTRONICSS"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "FRUITS"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "FAST FOODS"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "BUTTER EGG"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "OCEAN FOODS"
                                                 ),
                                                 Divider(thickness: 1,color: Colors.grey[200],),
-                                                const SizedBox(height: 20),
-                                                const MenuType(
+                                                SizedBox(height: 20),
+                                                MenuType(
                                                     isSelected: false,
                                                     coffeeType: "FRESH BERRIES"
                                                 ),
@@ -613,18 +603,55 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                             ),
                           ],
                         ),
-                        Column(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GridView.builder(
-                                shrinkWrap: true,
-                                itemCount: 8,
-                                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,),
-                                itemBuilder: (context, index)=>const featured_product(
-                                    featuredImage: 'assets/images/chair.png',
-                                    featuredName: 'Stuffing Chair',
-                                    featuredPrice: '400.00')
-                            )
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Sand PAper with Gari',
+                                featuredPrice: '300.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
+                            featured_product(
+                                featuredImage: 'assets/images/chair.png',
+                                featuredName: 'Stuffing Chair',
+                                featuredPrice: '400.00'),
+                            SizedBox(width: 10),
                           ],
                         ),
                         const SizedBox(height: 20,),
