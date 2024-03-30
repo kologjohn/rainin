@@ -572,7 +572,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                               itemBuilder: (context, index)=>const featured_product(
                                   featuredImage: 'assets/images/chair.png',
                                   featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00')
+                                  featuredPrice: '400.00', pgress: false,)
                           )
                         ],
                       ),

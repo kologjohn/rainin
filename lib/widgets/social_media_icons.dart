@@ -28,6 +28,7 @@ class SocialMediaIcons extends StatelessWidget {
         GestureDetector(
           child: SvgPicture.asset("assets/svg/icons8-pinterest.svg", width: 20, height: 20,),
           onTap: (){
+            Navigator.of(context).pop();
             signin(context);
           },
         ),

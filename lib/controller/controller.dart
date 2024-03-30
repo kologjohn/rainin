@@ -8,6 +8,12 @@ class Ecom extends ChangeNotifier{
   String error="";
   String cartidnumber="";
   bool loginstatus=false;
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      // Add other scopes as needed.
+    ],
+  );
 
   signupwithemail(String firstname,String lastname,String username,String contact,String sex,String email,String password)async{
     try{
@@ -64,14 +70,16 @@ class Ecom extends ChangeNotifier{
     notifyListeners();
   }
 
-  addtocart(String itemname,String price,String quantity,String code)async{
+  Future<bool> addtocart(String itemname,String price,String quantity,String code)async{
   //  double total=double.parse(price)*double.parse(quantity);
-
+    bool success=false;
     if(Dbfields.auth.currentUser==null) {
+      success=false;
       print("Please u are not login");
 
     }
     else if(!Dbfields.auth.currentUser!.emailVerified){
+      success=false;
       print("You are not verified");
     }
     else
@@ -90,8 +98,13 @@ class Ecom extends ChangeNotifier{
           Dbfields.cartidnumber:mycartid,
         };
         await Dbfields.db.collection(Dbfields.cart).add(data);
-        print("Added Successfully");
+        cartidnumber=mycartid;
+        success=true;
+        print("Added Successfully$cartidnumber");
       }
+    notifyListeners();
+
+    return success;
 
   }
 
@@ -114,10 +127,12 @@ class Ecom extends ChangeNotifier{
             await Dbfields.db.collection(Dbfields.cartids).doc("$realcartid").set(data);
             cid="$realcartid";
             print("New Cart ID Added");
+            cartidnumber=cid;
           }
         else
           {
             cid=mycartid.docs[0].id;
+            cartidnumber=cid;
             print("Already have unpaid Cart ID");
           }
 
@@ -128,14 +143,71 @@ class Ecom extends ChangeNotifier{
       return cid;
   }
 
+  Future<void> signInWithGoogle() async {
+    // Create a new provider
+    try {
+      GoogleAuthProvider googleProvider = GoogleAuthProvider();
+      googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      googleProvider.setCustomParameters({
+        'login_hint': 'user@example.com'
+      });
+      // Once signed in, return the UserCredential
+      final my_login = await Dbfields.auth.signInWithPopup(googleProvider);
+      print(my_login);
+    }on FirebaseException catch(e){
+      print(e);
+      //errorMsgs=e.message!;
+    }
+    // Or use signInWithRedirect
+    // return await FirebaseAuth.instance.signInWithRedirect(googleProvider);
+  }
+  googlesignup(BuildContext context) async{
+    final GoogleSignInAccount? googleSignInAccount=await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication googleSignInAuthentication=await googleSignInAccount!.authentication;
+    final credentials=GoogleAuthProvider.credential(accessToken: googleSignInAuthentication.accessToken, idToken: googleSignInAuthentication.idToken);
+    try{
+      await  Dbfields.auth.signInWithCredential(credentials);
+      loginstatus=true;
+      String? name=Dbfields.auth.currentUser!.displayName;
+      String? email=Dbfields.auth.currentUser!.email;
+      // final existdata=await Dbfields.db.collection("users").doc(email).get();
+      // if(existdata.exists)
+      // {
+      //   String phone=existdata.data()!['phone'];
+      //   await setsession(name!, email!, phone);
+      //   if(await SessionManager().containsKey("pin"))
+      //   {
+      //     Navigator.pushNamed(context, Routes.pinscreen);
+      //
+      //   }
+      //   else
+      //   {
+      //     Navigator.pushNamed(context, Routes.pinsetup);
+      //
+      //   }
+      // }
+      // else
+      // {
+      //   googlebtn=true;
+      //   await SessionManager().set("googlebtn", true);
+      //   Navigator.pushNamed(context, Routes.signup);
+      // }
+
+
+      // setsession(name!, email!);
+      notifyListeners();
+    }on FirebaseException catch(e){
+      print( e.message!);
+
+    }
+    notifyListeners();
+  }
+
   Future<User?> signInWithGoogles({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
-
    // if (googleSignInAccount != null)
-
       try {
-
         final GoogleSignIn googleSignIn = GoogleSignIn();
         final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
         if (googleSignInAccount != null){
@@ -146,9 +218,8 @@ class Ecom extends ChangeNotifier{
             idToken: googleSignInAuthentication.idToken,
           );
 
-          final UserCredential userCredential =
-          await auth.signInWithCredential(credential);
-
+          final UserCredential userCredential =await auth.signInWithCredential(credential);
+print(userCredential);
           user = userCredential.user;
           }
 
@@ -162,11 +233,32 @@ class Ecom extends ChangeNotifier{
           // handle the error here
         }
       } catch (e) {
+        print(e);
         // handle the error here
       }
 
 
     return user;
   }
+
+
+  Future<void> silentSignIn() async {
+    try {
+      final GoogleSignInAccount? account = await _googleSignIn.signInSilently();
+      if (account != null) {
+        // Successfully signed in silently
+        print('Successfully signed in silently, user: ${account.email}');
+        // Proceed with your application logic here (e.g., navigate to home screen)
+      } else {
+        // User could not be signed in silently
+        print('User could not be signed in silently');
+        // You may want to prompt the user to sign in interactively
+      }
+    } catch (error) {
+      print('Error signing in silently: $error');
+      // Handle the error (e.g., by showing an error message or prompting an interactive sign-in)
+    }
+  }
+
 
 }

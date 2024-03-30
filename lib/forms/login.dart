@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:raininn/components/forgot_password.dart';
@@ -127,10 +128,13 @@ Future signin(BuildContext context) {
                               label: '', horizontalPadding: 20,
                               onPressed: ()async{
                                 final hh=await value.signInWithGoogles(context: context);
+
                                 if(hh!=null){
                                   SnackBar snackbar=SnackBar(content: Text("Hello,${hh.displayName}, Login Success"));
                                   ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                                  Navigator.of(context).pop();
                                 }
+                                // print(hh);
                               }
                           ),
                           const SizedBox(width: 10),
