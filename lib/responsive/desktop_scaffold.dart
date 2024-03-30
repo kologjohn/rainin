@@ -95,15 +95,6 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                         //height: 10000,
                         child: Column(
                           children: [
-                            // Row(
-                            //   children: [
-                            //     Text("RAIN INN MALL",
-                            //       style: TextStyle(
-                            //         fontSize: 25
-                            //       ),
-                            //     )
-                            //   ],
-                            // ),
                             Column(
                               children: [
                                 Row(
@@ -187,7 +178,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                             children: [
                                               Icon(Icons.favorite),
                                               Icon(Icons.shopping_cart),
-                                              Text("${value.cartidnumber}")
+                                              Text("Item: ${value.cartidnumber}")
                                             ],
                                           ),
                                         )
@@ -505,43 +496,6 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                     slideName: "Stuffing Chair",
                                     slidePrice: "500.00"
                                 ),
-                                // child: ListView(
-                                //   addAutomaticKeepAlives: true,
-                                //   scrollDirection: Axis.horizontal,
-                                //   children: const [
-                                //
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //     SlideTile(
-                                //         slideImagePath: "assets/images/chair.png",
-                                //         slideName: "Stuffing Chair",
-                                //         slidePrice: "500.00"
-                                //     ),
-                                //   ],
-                                // ),
                               ),
                             ),
                             Divider(
@@ -594,50 +548,21 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 ),
                               ],
                             ),
-                            const Row(
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(width: 10),
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-                                SizedBox(width: 10),
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-                                SizedBox(width: 10),
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-                                SizedBox(width: 10),
+                                GridView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: 6,
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 8),
+                                  itemBuilder: (context, index)=>const featured_product(
+                                    featuredImage: 'assets/images/chair.png',
+                                    featuredName: 'Stuffing Chair',
+                                    featuredPrice: '400.00', pgress: false,),
+                                )
                               ],
                             ),
                             const SizedBox(height: 20),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-                                SizedBox(width: 10),
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-                                SizedBox(width: 10),
-                                featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,),
-
-                                SizedBox(width: 10),
-                              ],
-                            ),
-                            const SizedBox(height: 20,),
                             Divider(
                               thickness: 10,
                               color: Colors.grey[200],
