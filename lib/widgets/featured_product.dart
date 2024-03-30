@@ -36,15 +36,22 @@ class _featured_productState extends State<featured_product> {
         Text(widget.featuredName),
         Text('\$${widget.featuredPrice}', style: const TextStyle(fontWeight: FontWeight.w600),
         ),
+         //SizedBox(height: 20),
          Visibility(
            visible: cartshow,
            child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.favorite, size: 18,),
+              Container(
+                  height: 30,
+                width: 100,
+                color: Colors.green[200],
+                  child: const Icon(
+                    Icons.favorite, size: 25, color: Colors.white,
+                  ),
+              ),
               const SizedBox(width: 10),
-              const Icon(Icons.shopping_cart_checkout, size: 18,),
-              const SizedBox(width: 10),
+              //const Icon(Icons.shopping_cart_checkout, size: 18,),
               InkWell(
                 onTap: ()async{
                   setState(() {
@@ -71,12 +78,19 @@ class _featured_productState extends State<featured_product> {
                   //String? email=Dbfields.auth.currentUser!.email;
 
                 },
-                  child: Icon(Icons.shopping_cart,size: 18,)
+                  child: Container(
+                      height: 30,
+                    width: 100,
+                    color: Colors.orange[200],
+                      child: const Icon(
+                        Icons.shopping_cart,size: 25, color: Colors.white,
+                      ),
+                  )
               ),
             ],
                    ),
          ),
-         Visibility(visible:myprogess,child: Container(height:20,width:20,child: CircularProgressIndicator(color: Colors.orange,strokeWidth: 4,))),
+         Visibility(visible:myprogess,child: const SizedBox(height:20,width:20,child: CircularProgressIndicator(color: Colors.orange,strokeWidth: 4,))),
       ],
     );
   }
