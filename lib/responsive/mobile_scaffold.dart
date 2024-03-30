@@ -1,10 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:raininn/controller/dbfields.dart';
 import 'package:raininn/widgets/social_media_icons.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../forms/login.dart';
 import '../forms/signup.dart';
 import '../widgets/featured_product.dart';
+import '../widgets/featuredgridview.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/slide_tile.dart';
 
@@ -565,15 +569,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GridView.builder(
-                              shrinkWrap: true,
-                              itemCount: 6,
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
-                              itemBuilder: (context, index)=>const featured_product(
-                                  featuredImage: 'assets/images/chair.png',
-                                  featuredName: 'Stuffing Chair',
-                                  featuredPrice: '400.00', pgress: false,)
-                          )
+                          featuredGridview(shoenum: 1,)
                         ],
                       ),
                     ],
@@ -1151,3 +1147,4 @@ class _MobileScaffoldState extends State<MobileScaffold> {
     );
   }
 }
+

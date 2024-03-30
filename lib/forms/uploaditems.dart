@@ -10,7 +10,7 @@ import '../components/gradient_button.dart';
 import '../components/login_field.dart';
 
 
-Future signup(BuildContext context) {
+Future itemupload(BuildContext context) {
 
   XenCardGutter gutter = XenCardGutter(
     child: InkWell(
@@ -29,12 +29,11 @@ Future signup(BuildContext context) {
  bool formval(){
    return formvalidate.currentState!.validate();
  }
-  TextEditingController email=TextEditingController();
-  TextEditingController password=TextEditingController();
-  TextEditingController firstname=TextEditingController();
-  TextEditingController lastname=TextEditingController();
-  TextEditingController username=TextEditingController();
-  TextEditingController contact=TextEditingController();
+  TextEditingController item_controller=TextEditingController();
+  TextEditingController barcode_controller=TextEditingController();
+  TextEditingController price_controller=TextEditingController();
+  TextEditingController des_controller=TextEditingController();
+  TextEditingController quantity_controller=TextEditingController();
 
 
   return showDialog(
@@ -60,26 +59,25 @@ Future signup(BuildContext context) {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Sign Up.',
+                        Text('Upload Items.',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                            fontSize: 20,
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 20,),
-                    LoginField(hintText: 'First Name',controller: firstname,textInputType: TextInputType.name,),
+                    LoginField(hintText: 'Item Name',controller: item_controller,textInputType: TextInputType.name,),
                     const SizedBox(height: 15,),
-                    LoginField(hintText: 'Last Name',controller: lastname,textInputType: TextInputType.name,),
+                    LoginField(hintText: 'Input/Scan Barcode',controller: item_controller,textInputType: TextInputType.text,),
                     const SizedBox(height: 15,),
-                    LoginField(hintText: 'User Name',controller: username,textInputType: TextInputType.name,),
+                    LoginField(hintText: 'Price',controller: price_controller,textInputType: const TextInputType.numberWithOptions(decimal: true),),
                     const SizedBox(height: 15,),
-                    LoginField(hintText: 'Email',controller: email,textInputType: TextInputType.emailAddress,),
+                    LoginField(hintText: 'Quantity',controller: quantity_controller,textInputType: const TextInputType.numberWithOptions(decimal:true ),),
                     const SizedBox(height: 15,),
-                    LoginField(hintText: 'Phone',controller: contact,textInputType: TextInputType.phone,),
-                    const SizedBox(height: 15,),
-                    LoginField(hintText: 'Password',controller: password,textInputType: TextInputType.visiblePassword,),
+                    const SizedBox(height: 15,),    LoginField(hintText: 'Description',controller: des_controller,textInputType: const TextInputType.numberWithOptions(decimal:true ),),
+
                     const SizedBox(height: 20,),
                      Container(
                       decoration: BoxDecoration(
@@ -98,16 +96,14 @@ Future signup(BuildContext context) {
                       child: ElevatedButton(
                         onPressed: () {
                           formval();
-                          String email_txt=email.text.trim();
-                          String password_txt=password.text.trim();
-                          String firstnname_txt=firstname.text.trim();
-                          String lastname_txt=lastname.text.trim();
-                          String username_txt=username.text.trim();
-                          String contact_txt=contact.text.trim();
-                          String sex="Male";
-                          Ecom().signupwithemail(firstnname_txt, lastname_txt, username_txt, contact_txt, sex, email_txt, password_txt);
-                          print(Ecom().accountcreated);
-                          print(Ecom().error);
+                          String item=item_controller.text.trim();
+                          String price=price_controller.text.trim();
+                          String quantity=quantity_controller.text.trim();
+                          String description=des_controller.text.trim();
+                          String barcode=barcode_controller.text.trim();
+                         // Ecom().signupwithemail(firstnname_txt, lastname_txt, username_txt, contact_txt, sex, email_txt, password_txt);
+                         // print(Ecom().accountcreated);
+                        //  print(Ecom().error);
 
                         },
                         style: ElevatedButton.styleFrom(
@@ -116,7 +112,7 @@ Future signup(BuildContext context) {
                           shadowColor: Colors.transparent,
                         ),
                         child: const Text(
-                          'Create Account',
+                          'Save Product',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: Colors.white,

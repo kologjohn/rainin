@@ -6,7 +6,8 @@ import 'global.dart';
 class LoginField extends StatelessWidget {
   final String hintText;
   final  TextEditingController controller;
-  const LoginField({super.key, required this.hintText,required this.controller});
+  final TextInputType textInputType;
+  const LoginField({super.key, required this.hintText,required this.controller, required this.textInputType});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class LoginField extends StatelessWidget {
         maxWidth: 400,
       ),
       child: TextFormField(
+        keyboardType: textInputType,
         controller: controller,
         decoration: InputDecoration(
           //contentPadding: EdgeInsets.all(27),

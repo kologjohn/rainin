@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:raininn/widgets/featuredgridview.dart';
 import 'package:raininn/widgets/tablet_featured_product.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../widgets/featured_product.dart';
@@ -492,15 +493,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GridView.builder(
-                          shrinkWrap: true,
-                          itemCount: 6,
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 8),
-                          itemBuilder: (context, index)=>const featured_product(
-                              featuredImage: 'assets/images/chair.png',
-                              featuredName: 'Stuffing Chair',
-                              featuredPrice: '400.00', pgress: false,),
-                      )
+                      featuredGridview(shoenum: 3)
                     ],
                   ),
                   const SizedBox(height: 50),

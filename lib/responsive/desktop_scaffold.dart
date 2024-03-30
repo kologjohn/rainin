@@ -5,6 +5,7 @@ import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../widgets/featured_product.dart';
+import '../widgets/featuredgridview.dart';
 import '../widgets/social_media_icons.dart';
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
@@ -551,15 +552,8 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                GridView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: 6,
-                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 8),
-                                  itemBuilder: (context, index)=>const featured_product(
-                                    featuredImage: 'assets/images/chair.png',
-                                    featuredName: 'Stuffing Chair',
-                                    featuredPrice: '400.00', pgress: false,),
-                                )
+                                featuredGridview(shoenum: 4,)
+
                               ],
                             ),
                             const SizedBox(height: 20),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:raininn/forms/uploaditems.dart';
 
 import '../forms/login.dart';
 import '../forms/signup.dart';
@@ -21,7 +22,8 @@ class SocialMediaIcons extends StatelessWidget {
         GestureDetector(
           child: SvgPicture.asset("assets/svg/icons8-linkedin.svg", width: 20, height: 20,),
           onTap: (){
-            signup(context);
+            itemupload(context);
+            //signup(context);
           },
         ),
         const SizedBox(width: 18,),
