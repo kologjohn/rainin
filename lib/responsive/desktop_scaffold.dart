@@ -553,8 +553,8 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               children: [
                                 GridView.builder(
                                   shrinkWrap: true,
-                                  itemCount: 6,
-                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 8),
+                                  itemCount: 8,
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,),
                                   itemBuilder: (context, index)=>const featured_product(
                                     featuredImage: 'assets/images/chair.png',
                                     featuredName: 'Stuffing Chair',
