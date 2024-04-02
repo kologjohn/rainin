@@ -6,6 +6,7 @@ import 'package:raininn/responsive/mobile_scaffold.dart';
 import 'package:raininn/responsive/responsive_layout.dart';
 import 'package:raininn/responsive/tablet_scaffold.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:raininn/widgets/route.dart';
 import 'firebase_options.dart';
 import 'package:uuid/uuid.dart';
 void main() async {
@@ -26,13 +27,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: pages,
+      initialRoute: Routes.dashboard,
       debugShowCheckedModeBanner: false,
-      home: ResponsiveLayout(
-          isMobile: MobileScaffold(),
-          isTablet: TabletScaffold(),
-          isDesktop: DesktopScaffold()
-      ),
     );
   }
 }

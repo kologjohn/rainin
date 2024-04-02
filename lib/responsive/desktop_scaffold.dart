@@ -1,7 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:raininn/controller/controller.dart';
 import 'package:raininn/widgets/menu_type.dart';
+import 'package:raininn/widgets/route.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import '../widgets/featured_product.dart';
@@ -133,30 +135,35 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                               height: 50,
                                               child: ListView(
                                                 scrollDirection: Axis.horizontal,
-                                                children:  const [
+                                                children: [
                                                   Row(
                                                     children: [
-                                                      MenuType(
+                                                      const MenuType(
                                                           isSelected: true,
                                                           coffeeType: "HOME"
                                                       ),
-                                                      SizedBox(width: 40),
-                                                      MenuType(
-                                                          isSelected: false,
-                                                          coffeeType: "SHOP"
+                                                      const SizedBox(width: 40),
+                                                      InkWell(
+                                                        onTap: (){
+                                                          Navigator.pushNamed(context, Routes.shop);
+                                                        },
+                                                        child: const MenuType(
+                                                            isSelected: false,
+                                                            coffeeType: "SHOP"
+                                                        ),
                                                       ),
-                                                      SizedBox(width: 40),
-                                                      MenuType(
+                                                      const SizedBox(width: 40),
+                                                      const MenuType(
                                                           isSelected: false,
                                                           coffeeType: "PAGES"
                                                       ),
-                                                      SizedBox(width: 40),
-                                                      MenuType(
+                                                      const SizedBox(width: 40),
+                                                      const MenuType(
                                                           isSelected: false,
                                                           coffeeType: "BLOG"
                                                       ),
-                                                      SizedBox(width: 40),
-                                                      MenuType(
+                                                      const SizedBox(width: 40),
+                                                      const MenuType(
                                                           isSelected: false,
                                                           coffeeType: "CONTACT"
                                                       ),
@@ -177,8 +184,12 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                           child: Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Icon(Icons.favorite),
-                                              Icon(Icons.shopping_cart),
+                                              const Icon(Icons.favorite),
+                                              InkWell(
+                                                onTap: (){
+                                                  Navigator.pushNamed(context, Routes.cart);
+                                                },
+                                                  child: const Icon(Icons.shopping_cart)),
                                               Text("Item: ${value.cartidnumber}")
                                             ],
                                           ),
@@ -252,49 +263,49 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                                 child: ListView(
                                                   scrollDirection: Axis.vertical,
                                                   children:   [
-                                                    MenuType(
+                                                    const MenuType(
                                                         isSelected: true,
                                                         coffeeType: "MEAT"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "VEGETABLES"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "ELECTRONICSS"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "FRUITS"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "FAST FOODS"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "BUTTER EGG"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "OCEAN FOODS"
                                                     ),
                                                     Divider(thickness: 1,color: Colors.grey[200],),
-                                                    SizedBox(height: 20),
-                                                    MenuType(
+                                                    const SizedBox(height: 20),
+                                                    const MenuType(
                                                         isSelected: false,
                                                         coffeeType: "FRESH BERRIES"
                                                     ),
@@ -480,25 +491,65 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               color: Colors.grey[200],
                             ),
                             const SizedBox(height: 30),
-                            const SizedBox(
-                              height: 320,
-                              //color: Colors.red,
-                              child: ScrollLoopAutoScroll(
-                                scrollDirection: Axis.horizontal,
-                                delay: Duration(seconds: 4),
-                                duration: Duration(seconds: 50),
-                                gap: 25,
-                                reverseScroll: false,
-                                duplicateChild : 25,
-                                enableScrollInput : false,
-                                delayAfterScrollInput : Duration(seconds: 4),
-                                child:  SlideTile(
+                            CarouselSlider(
+                                options: CarouselOptions(
+                                    height: 400.0,
+                                    autoPlay: true,
+                                    enlargeCenterPage: false,
+                                  viewportFraction: 0.2
+                                ),
+                                items: const [
+                                  SlideTile(
                                     slideImagePath: "assets/images/chair.png",
                                     slideName: "Stuffing Chair",
                                     slidePrice: "500.00"
-                                ),
-                              ),
+                                    ),
+                                  SlideTile(
+                                    slideImagePath: "assets/images/chair.png",
+                                    slideName: "Stuffing Chair",
+                                    slidePrice: "500.00"
+                                    ),
+                                  SlideTile(
+                                    slideImagePath: "assets/images/chair.png",
+                                    slideName: "Stuffing Chair",
+                                    slidePrice: "500.00"
+                                    ),
+                                  SlideTile(
+                                    slideImagePath: "assets/images/chair.png",
+                                    slideName: "Stuffing Chair",
+                                    slidePrice: "500.00"
+                                    ),
+                                  SlideTile(
+                                    slideImagePath: "assets/images/chair.png",
+                                    slideName: "Stuffing Chair",
+                                    slidePrice: "500.00"
+                                    ),
+                                  SlideTile(
+                                    slideImagePath: "assets/images/chair.png",
+                                    slideName: "Stuffing Chair",
+                                    slidePrice: "500.00"
+                                    ),
+                                ]
                             ),
+                            // const SizedBox(
+                            //   height: 320,
+                            //   //color: Colors.red,
+                            //   child: ScrollLoopAutoScroll(
+                            //     scrollDirection: Axis.horizontal,
+                            //     delay: Duration(seconds: 4),
+                            //     duration: Duration(seconds: 50),
+                            //     gap: 25,
+                            //     reverseScroll: false,
+                            //     duplicateChild : 25,
+                            //     enableScrollInput : false,
+                            //     delayAfterScrollInput : Duration(seconds: 4),
+                            //     child:  SlideTile(
+                            //         slideImagePath: "assets/images/chair.png",
+                            //         slideName: "Stuffing Chair",
+                            //         slidePrice: "500.00"
+                            //     ),
+                            //   ),
+                            // ),
                             Divider(
                               thickness: 10,
                               color: Colors.grey[200],
@@ -552,7 +603,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                featuredGridview(shoenum: 4,)
+                                featuredGridview(shoenum: 4, widgth: 300, height: 200, imgHeight: 400, imgWidth: 250, name: 16, price: 16, favHeight: 30, favWidth: 100, favSize: 25, cartHeight: 30, cartWidth: 100, cartSize: 25,)
 
                               ],
                             ),

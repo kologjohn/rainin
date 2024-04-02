@@ -1,10 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:raininn/widgets/featuredgridview.dart';
-import 'package:raininn/widgets/tablet_featured_product.dart';
-import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
-import '../widgets/featured_product.dart';
 import '../widgets/menu_type.dart';
+import '../widgets/route.dart';
 import '../widgets/slide_tile.dart';
 import '../widgets/social_media_icons.dart';
 
@@ -24,51 +22,19 @@ class _TabletScaffoldState extends State<TabletScaffold> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   height: 50,
-            //   color: Colors.lightGreen[50],
-            //   child: const Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //     children: [
-            //       Row(
-            //         children: [
-            //           Icon(Icons.email, size: 18,),
-            //           SizedBox(width: 8,),
-            //           Text("info@raininn.com"),
-            //           SizedBox(width: 10),
-            //           Icon(Icons.location_pin, size: 18,),
-            //           SizedBox(width: 8),
-            //           Text("Along the commercial street, Bolgatanga"),
-            //         ],
-            //       ),
-            //       Row(
-            //         children: [
-            //           Icon(Icons.facebook, size: 18,),
-            //           SizedBox(width: 12,),
-            //           Icon(Icons.facebook, size: 18,),
-            //           SizedBox(width: 12,),
-            //           Icon(Icons.facebook, size: 18,),
-            //           SizedBox(width: 12,),
-            //           Icon(Icons.facebook, size: 18,),
-            //           SizedBox(width: 12,),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.only(left: 100.0, right: 100),
               child: Column(
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       Row(
                         children: [
                           Expanded(
-                              child: Container(
+                              child: SizedBox(
                                 height: 50,
                                 //color: Colors.red,
-                                child: const Row(
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Flexible(
@@ -90,18 +56,20 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     ],
                   ),
                   const SizedBox(height: 20,),
-                  const Column(
+                  Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.favorite),
-                          SizedBox(width: 10),
-                          Icon(Icons.shopping_bag),
                           SizedBox(width: 20),
-                          Text("Item:"),
-                          SizedBox(width: 10),
-                          Text("500.00"),
+                          InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context, Routes.cart);
+                              },
+                              child: const Icon(Icons.shopping_cart)),
+                          SizedBox(width: 20),
+                          Text("Item")
                         ],
                       )
                     ],
@@ -278,10 +246,10 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                     Row(
                                       children: [
                                         CircleAvatar(
+                                            backgroundColor: Colors.lightGreen[50],
                                             child: const Icon(
                                                 Icons.call, color: Colors.orange,
                                             ),
-                                          backgroundColor: Colors.lightGreen[50],
                                         ),
                                         const SizedBox(width: 12),
                                         const Column(
@@ -389,62 +357,65 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const SizedBox(
-                    height: 320,
-                    //color: Colors.red,
-                    child: ScrollLoopAutoScroll(
-                      scrollDirection: Axis.horizontal,
-                      delay: Duration(seconds: 4),
-                      duration: Duration(seconds: 50),
-                      gap: 25,
-                      reverseScroll: false,
-                      duplicateChild : 25,
-                      enableScrollInput : false,
-                      delayAfterScrollInput : Duration(seconds: 4),
-                      child:  SlideTile(
-                          slideImagePath: "assets/images/chair.png",
-                          slideName: "Stuffing Chair",
-                          slidePrice: "500.00"
+                  CarouselSlider(
+                      options: CarouselOptions(
+                          height: 400.0,
+                          autoPlay: true,
+                          enlargeCenterPage: false,
+                          viewportFraction: 0.3
                       ),
-                      // child: ListView(
-                      //   addAutomaticKeepAlives: true,
-                      //   scrollDirection: Axis.horizontal,
-                      //   children: const [
-                      //
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //     SlideTile(
-                      //         slideImagePath: "assets/images/chair.png",
-                      //         slideName: "Stuffing Chair",
-                      //         slidePrice: "500.00"
-                      //     ),
-                      //   ],
-                      // ),
-                    ),
+                      items: const [
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                      ]
                   ),
+                  // const SizedBox(
+                  //   height: 320,
+                  //   //color: Colors.red,
+                  //   child: ScrollLoopAutoScroll(
+                  //     scrollDirection: Axis.horizontal,
+                  //     delay: Duration(seconds: 4),
+                  //     duration: Duration(seconds: 50),
+                  //     gap: 25,
+                  //     reverseScroll: false,
+                  //     duplicateChild : 25,
+                  //     enableScrollInput : false,
+                  //     delayAfterScrollInput : Duration(seconds: 4),
+                  //     child:  SlideTile(
+                  //         slideImagePath: "assets/images/chair.png",
+                  //         slideName: "Stuffing Chair",
+                  //         slidePrice: "500.00"
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(height: 20),
                    const Column(
                     children: [
@@ -490,10 +461,10 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       ),
                     ],
                   ),
-                  Column(
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      featuredGridview(shoenum: 3)
+                      featuredGridview(shoenum: 3, widgth: 250, height: 150, imgHeight: 300, imgWidth: 200, name: 14, price: 14, favHeight: 30, favWidth: 80, favSize: 20, cartHeight: 30, cartWidth: 80, cartSize: 20)
                     ],
                   ),
                   const SizedBox(height: 50),
@@ -618,7 +589,6 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                                             ),
                                             child: const Text("SHOP NOW", style: TextStyle(color: Colors.white, fontSize: 10),),
                                           )
-
                                         ],
                                       ),
                                     ),
@@ -636,75 +606,51 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       Expanded(
                           child: Container(
                             color: Colors.white,
-                            height: 700,
-                            child: const Column(
+                            height: 470,
+                            child: Column(
                               children: [
-                                Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                SizedBox(height: 18),
-                                SizedBox(
-                                  height: 640,
-                                  //color: Colors.red,
-                                  child: ScrollLoopAutoScroll(
-                                    scrollDirection: Axis.horizontal,
-                                    delay: Duration(seconds: 4),
-                                    duration: Duration(seconds: 50),
-                                    gap: 2,
-                                    reverseScroll: false,
-                                    duplicateChild : 25,
-                                    enableScrollInput : false,
-                                    delayAfterScrollInput : Duration(seconds: 4),
-                                    child:  Column(
-                                      children: [
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                      ],
+                                const Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
+                                const SizedBox(height: 18),
+                                CarouselSlider(
+                                    options: CarouselOptions(
+                                      //scrollDirection: Axis.vertical,
+                                        height: 400.0,
+                                        autoPlay: true,
+                                        enlargeCenterPage: true,
+                                        viewportFraction: 0.5
                                     ),
-                                    // child: ListView(
-                                    //   addAutomaticKeepAlives: true,
-                                    //   scrollDirection: Axis.horizontal,
-                                    //   children: const [
-                                    //
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //   ],
-                                    // ),
-                                  ),
+                                    items: const [
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                    ]
                                 ),
                               ],
                             ),
@@ -714,75 +660,51 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       Expanded(
                           child: Container(
                             color: Colors.white,
-                            height: 700,
-                            child: const Column(
+                            height: 470,
+                            child: Column(
                               children: [
-                                Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                SizedBox(height: 18),
-                                SizedBox(
-                                  height: 640,
-                                  //color: Colors.red,
-                                  child: ScrollLoopAutoScroll(
-                                    scrollDirection: Axis.horizontal,
-                                    delay: Duration(seconds: 4),
-                                    duration: Duration(seconds: 50),
-                                    gap: 2,
-                                    reverseScroll: false,
-                                    duplicateChild : 25,
-                                    enableScrollInput : false,
-                                    delayAfterScrollInput : Duration(seconds: 4),
-                                    child:  Column(
-                                      children: [
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                      ],
+                                const Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
+                                const SizedBox(height: 18),
+                                CarouselSlider(
+                                    options: CarouselOptions(
+                                      //scrollDirection: Axis.vertical,
+                                        height: 400.0,
+                                        autoPlay: true,
+                                        enlargeCenterPage: true,
+                                        viewportFraction: 0.5
                                     ),
-                                    // child: ListView(
-                                    //   addAutomaticKeepAlives: true,
-                                    //   scrollDirection: Axis.horizontal,
-                                    //   children: const [
-                                    //
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //     SlideTile(
-                                    //         slideImagePath: "assets/images/chair.png",
-                                    //         slideName: "Stuffing Chair",
-                                    //         slidePrice: "500.00"
-                                    //     ),
-                                    //   ],
-                                    // ),
-                                  ),
+                                    items: const [
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                      SlideTile(
+                                          slideImagePath: "assets/images/chair.png",
+                                          slideName: "Stuffing Chair",
+                                          slidePrice: "500.00"
+                                      ),
+                                    ]
                                 ),
                               ],
                             ),
@@ -812,7 +734,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                             //color: Colors.red,
                             child: Column(
                               children: [
-                                Container(child: Image.asset("assets/images/chair.png", height: 300,width: 300,), color: Colors.lightBlue[50],),
+                                Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 300,width: 300,),),
                                 const SizedBox(height: 10),
                                 const Row(
                                   children: [
@@ -856,7 +778,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                             //color: Colors.red,
                             child: Column(
                               children: [
-                                Container(child: Image.asset("assets/images/chair.png", height: 300,width: 300,), color: Colors.lightBlue[50],),
+                                Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 300,width: 300,),),
                                 const SizedBox(height: 10),
                                 const Row(
                                   children: [
@@ -900,7 +822,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                             //color: Colors.red,
                             child: Column(
                               children: [
-                                Container(child: Image.asset("assets/images/chair.png", height: 300,width: 300,), color: Colors.lightBlue[50],),
+                                Container(color: Colors.lightBlue[50],child: Image.asset("assets/images/chair.png", height: 300,width: 300,),),
                                 const SizedBox(height: 10),
                                 const Row(
                                   children: [
@@ -952,11 +874,11 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                            child: Container(
+                        const Expanded(
+                            child: SizedBox(
                               height: 200,
                               //color: Colors.red,
-                              child: const Column(
+                              child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text("RAIN INN MALL", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
@@ -971,11 +893,11 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                             )
                         ),
                         const SizedBox(width: 8),
-                        Expanded(
-                            child: Container(
+                        const Expanded(
+                            child: SizedBox(
                               height: 250,
                               //color: Colors.red,
-                              child: const Padding(
+                              child: Padding(
                                 padding: EdgeInsets.only(left: 20.0, right: 20.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1028,7 +950,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                         ),
                         const SizedBox(width: 8),
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                               height: 250,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,

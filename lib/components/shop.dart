@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
 import '../widgets/featured_product.dart';
+import '../widgets/featuredgridview.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/slide_tile.dart';
 
@@ -190,15 +191,7 @@ class _ShopPageState extends State<ShopPage> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  GridView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: 15,
-                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
-                                    itemBuilder: (context, index)=>const featured_product(
-                                      featuredImage: 'assets/images/chair.png',
-                                      featuredName: 'Stuffing Chair',
-                                      featuredPrice: '400.00', pgress: false,),
-                                  )
+                                  featuredGridview(shoenum: 3, widgth: 300, height: 200, imgHeight: 400, imgWidth: 250, name: 16, price: 16, favHeight: 30, favWidth: 100, favSize: 25, cartHeight: 30, cartWidth: 100, cartSize: 25)
                                 ],
                               )
                             ],

@@ -5,9 +5,19 @@ import '../controller/dbfields.dart';
 import 'featured_product.dart';
 class featuredGridview extends StatelessWidget {
   final int shoenum;
-  const featuredGridview({
-    super.key, required this.shoenum,
-  });
+  final double widgth;
+  final double height;
+  final double imgHeight;
+  final double imgWidth;
+  final double name;
+  final double price;
+  final double favHeight;
+  final double favWidth;
+  final double favSize;
+  final double cartHeight;
+  final double cartWidth;
+  final double cartSize;
+  const featuredGridview({super.key, required this.shoenum, required this.widgth, required this.height, required this.imgHeight, required this.imgWidth, required this.name, required this.price, required this.favHeight, required this.favWidth, required this.favSize, required this.cartHeight, required this.cartWidth, required this.cartSize,});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +43,13 @@ class featuredGridview extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: shoenum),
             itemBuilder: (context, index)=> featured_product(
-              featuredImage: 'assets/images/chair.png',
+              featuredImage: snapshot.data!.docs[index][ItemReg.itemurl],
               featuredName: snapshot.data!.docs[index][ItemReg.item],
-              featuredPrice: snapshot.data!.docs[index][ItemReg.sellingprice], pgress: false,)
+              featuredPrice: snapshot.data!.docs[index][ItemReg.sellingprice],
+              pgress: false,
+              contwidth: widgth,
+              contheight: height, imageHeight: imgHeight, imageWidth: imgWidth, nameSize: name, priceSize: price, favHeight: favHeight, favWidth: favWidth, favSize: favSize, cartHeight: cartHeight, cartWidth: cartWidth, cartSize: cartSize,
+            )
         );
 
       },

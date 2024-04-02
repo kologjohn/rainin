@@ -113,11 +113,11 @@ class _CartViewState extends State<CartView> {
                                             ),
                                             child: const Icon(Icons.remove),
                                           ),
-                                          SizedBox(width: 20),
-                                          Container(
-                                              child: TextField(),
-                                          width: 10,),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
+                                          const SizedBox(
+                                              width: 10,
+                                              child: TextField(),),
+                                          const SizedBox(width: 20),
                                           Container(
                                             padding: const EdgeInsets.all(4),
                                             decoration: BoxDecoration(
@@ -185,18 +185,18 @@ class _CartViewState extends State<CartView> {
                         children: [
                           Container(
                             height: 200,
-                            color: Colors.lightBlue[50],
+                            color: Colors.lightGreen[50],
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-                                  Row(
+                                  const Row(
                                     children: [
                                       Text("Cart Summary"),
                                     ],
                                   ),
-                                  Divider(),
-                                  Row(
+                                  const Divider(),
+                                  const Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
@@ -214,11 +214,11 @@ class _CartViewState extends State<CartView> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 50),
+                                  const SizedBox(height: 50),
                                   Container(
                                     height: 40,
                                     color: Colors.orange,
-                                    child: Row(
+                                    child: const Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(

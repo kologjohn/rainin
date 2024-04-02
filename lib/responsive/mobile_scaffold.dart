@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:raininn/controller/dbfields.dart';
 import 'package:raininn/widgets/social_media_icons.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+import 'package:typewritertext/typewritertext.dart';
 import '../forms/login.dart';
 import '../forms/signup.dart';
 import '../widgets/featured_product.dart';
@@ -159,72 +161,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   height: 50,
-            //   color: Colors.lightGreen[50],
-            //   child: const Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //     children: [
-            //       Row(
-            //         children: [
-            //           Icon(Icons.email, size: 18,),
-            //           SizedBox(width: 8,),
-            //           Text("info@raininn.com"),
-            //           SizedBox(width: 10),
-            //           Icon(Icons.location_pin, size: 18,),
-            //           SizedBox(width: 8),
-            //           Text("Bolgatanga"),
-            //         ],
-            //       ),
-            //       Row(
-            //         children: [
-            //           Icon(Icons.facebook, size: 18,),
-            //           SizedBox(width: 12,),
-            //           Icon(Icons.facebook, size: 18,),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
               child: Column(
                 children: [
-                  // Column(
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Expanded(
-                  //             child: Container(
-                  //               height: 50,
-                  //               //color: Colors.red,
-                  //               child:  Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //                 children: [
-                  //                   const Text(
-                  //                     "RAININN MALL",
-                  //                     style: TextStyle(
-                  //                         fontSize: 25,
-                  //                         fontWeight: FontWeight.w600
-                  //                     ),
-                  //                   ),
-                  //                   InkWell(
-                  //                     onTap: (){
-                  //                       SideBar();
-                  //                       print("object");
-                  //                     },
-                  //                       child: const Icon(
-                  //                         Icons.menu, size: 40,
-                  //                       )
-                  //                   )
-                  //                 ],
-                  //               ),
-                  //             )
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
                   const SizedBox(height: 20,),
                   const Column(
                     children: [
@@ -446,38 +386,56 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        const Text(
-                                          "FRUIT FRESH",
-                                          style: TextStyle(
-                                              color: Colors.orange,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 20
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        const Text(
-                                          "VEGETABLE",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 35
-                                          ),
-                                        ),
-                                        const SizedBox(height: 5),
-                                        const Text(
-                                          "100% ORGANIC",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 35
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        const Text(
-                                          "Free pickup delivery available",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 20,
+                                        Container(
+                                          color: Colors.lightBlue.withOpacity(0.6),
+                                          child: const Column(
+                                            children: [
+                                              TypeWriterText(
+                                                text: Text('FRUIT FRESH \n VEGETABLE \n 100% ORGANIC \n Free pickup delivery available',
+                                                style: TextStyle(
+                                                  fontSize: 25,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold
+                                                )
+                                                ),
+                                                repeat: true,
+                                                duration: Duration(milliseconds: 50),
+                                              )
+                                             //  const Text(
+                                             //    "FRUIT FRESH",
+                                             //    style: TextStyle(
+                                             //        color: Colors.orange,
+                                             //        fontWeight: FontWeight.w600,
+                                             //        fontSize: 20
+                                             //    ),
+                                             //  ),
+                                             //  //const SizedBox(height: 8),
+                                             //  const Text(
+                                             //    "VEGETABLE",
+                                             //    style: TextStyle(
+                                             //        color: Colors.black,
+                                             //        fontWeight: FontWeight.w600,
+                                             //        fontSize: 20
+                                             //    ),
+                                             //  ),
+                                             //  //const SizedBox(height: 15),
+                                             //  const Text(
+                                             //    "100% ORGANIC",
+                                             //    style: TextStyle(
+                                             //        color: Colors.black,
+                                             //        fontWeight: FontWeight.w600,
+                                             //        fontSize: 20
+                                             //    ),
+                                             //  ),
+                                             // // const SizedBox(height: 8),
+                                             //  const Text(
+                                             //    "Free pickup delivery available",
+                                             //    style: TextStyle(
+                                             //      color: Colors.black,
+                                             //      fontSize: 20,
+                                             //    ),
+                                             //  ),
+                                            ],
                                           ),
                                         ),
                                         const SizedBox(height: 20),
@@ -493,7 +451,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                                           ),
                                           child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
                                         )
-                                    
+
                                       ],
                                     ),
                                   ),
@@ -505,25 +463,65 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const SizedBox(
-                    height: 320,
-                    //color: Colors.red,
-                    child: ScrollLoopAutoScroll(
-                      scrollDirection: Axis.horizontal,
-                      delay: Duration(seconds: 4),
-                      duration: Duration(seconds: 50),
-                      gap: 0,
-                      reverseScroll: false,
-                      duplicateChild : 25,
-                      enableScrollInput : false,
-                      delayAfterScrollInput : Duration(seconds: 4),
-                      child:  SlideTile(
-                          slideImagePath: "assets/images/chair.png",
-                          slideName: "Stuffing Chair",
-                          slidePrice: "500.00"
+                  CarouselSlider(
+                      options: CarouselOptions(
+                          height: 400.0,
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          viewportFraction: 0.6
                       ),
-                    ),
+                      items: const [
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                        SlideTile(
+                            slideImagePath: "assets/images/chair.png",
+                            slideName: "Stuffing Chair",
+                            slidePrice: "500.00"
+                        ),
+                      ]
                   ),
+                  // const SizedBox(
+                  //   height: 320,
+                  //   //color: Colors.red,
+                  //   child: ScrollLoopAutoScroll(
+                  //     scrollDirection: Axis.horizontal,
+                  //     delay: Duration(seconds: 4),
+                  //     duration: Duration(seconds: 50),
+                  //     gap: 0,
+                  //     reverseScroll: false,
+                  //     duplicateChild : 25,
+                  //     enableScrollInput : false,
+                  //     delayAfterScrollInput : Duration(seconds: 4),
+                  //     child:  SlideTile(
+                  //         slideImagePath: "assets/images/chair.png",
+                  //         slideName: "Stuffing Chair",
+                  //         slidePrice: "500.00"
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(height: 20),
                   Column(
                     children: [
@@ -569,7 +567,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          featuredGridview(shoenum: 1,)
+                          featuredGridview(shoenum: 2, widgth: 100, height: 100, imgHeight: 200, imgWidth: 200, name: 12, price: 12, favHeight: 25, favWidth: 60, favSize: 25, cartHeight: 25, cartWidth: 60, cartSize: 25)
                         ],
                       ),
                     ],
