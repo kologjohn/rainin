@@ -6,6 +6,7 @@ import 'package:raininn/widgets/menu_type.dart';
 import 'package:raininn/widgets/route.dart';
 import 'package:raininn/widgets/slide_tile.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
+import '../widgets/carousel_slider.dart';
 import '../widgets/featured_product.dart';
 import '../widgets/featuredgridview.dart';
 import '../widgets/social_media_icons.dart';
@@ -491,46 +492,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               color: Colors.grey[200],
                             ),
                             const SizedBox(height: 30),
-                            CarouselSlider(
-                                options: CarouselOptions(
-                                    height: 400.0,
-                                    autoPlay: true,
-                                    enlargeCenterPage: false,
-                                  viewportFraction: 0.2
-                                ),
-                                items: const [
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                  SlideTile(
-                                    slideImagePath: "assets/images/chair.png",
-                                    slideName: "Stuffing Chair",
-                                    slidePrice: "500.00"
-                                    ),
-                                ]
-                            ),
+                            const MyCarousel(enlargeCenter: false, viewPort: 0.2,),
                             // const SizedBox(
                             //   height: 320,
                             //   //color: Colors.red,
@@ -600,7 +562,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 ),
                               ],
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 featuredGridview(shoenum: 4, widgth: 300, height: 200, imgHeight: 400, imgWidth: 250, name: 16, price: 16, favHeight: 30, favWidth: 100, favSize: 25, cartHeight: 30, cartWidth: 100, cartSize: 25,)
@@ -762,77 +724,16 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                               children: [
                                 Expanded(
                                     child: Container(
-                                      height: 700,
+                                      height: 470,
                                       color: Colors.white,
                                       child: const Column(
                                         //crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text("LATEST PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                          SizedBox(height: 18),
                                           SizedBox(
-                                            height: 640,
+                                            //height: 640,
                                             //color: Colors.red,
-                                            child: ScrollLoopAutoScroll(
-                                              scrollDirection: Axis.horizontal,
-                                              delay: Duration(seconds: 4),
-                                              duration: Duration(seconds: 50),
-                                              gap: 2,
-                                              reverseScroll: false,
-                                              duplicateChild : 25,
-                                              enableScrollInput : false,
-                                              delayAfterScrollInput : Duration(seconds: 4),
-                                              child:  Column(
-                                                children: [
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                ],
-                                              ),
-                                              // child: ListView(
-                                              //   addAutomaticKeepAlives: true,
-                                              //   scrollDirection: Axis.horizontal,
-                                              //   children: const [
-                                              //
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //   ],
-                                              // ),
-                                            ),
+                                            child: MyCarousel(enlargeCenter: false, viewPort: 0.5)
                                           ),
                                         ],
                                       ),
@@ -841,77 +742,16 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 const SizedBox(width: 8),
                                 Expanded(
                                     child: Container(
-                                      height: 700,
+                                      height: 470,
                                       color: Colors.white,
                                       child: const Column(
                                         //crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                          SizedBox(height: 18),
                                           SizedBox(
-                                            height: 640,
+                                            //height: 640,
                                             //color: Colors.red,
-                                            child: ScrollLoopAutoScroll(
-                                              scrollDirection: Axis.horizontal,
-                                              delay: Duration(seconds: 4),
-                                              duration: Duration(seconds: 50),
-                                              gap: 2,
-                                              reverseScroll: false,
-                                              duplicateChild : 25,
-                                              enableScrollInput : false,
-                                              delayAfterScrollInput : Duration(seconds: 4),
-                                              child:  Column(
-                                                children: [
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                ],
-                                              ),
-                                              // child: ListView(
-                                              //   addAutomaticKeepAlives: true,
-                                              //   scrollDirection: Axis.horizontal,
-                                              //   children: const [
-                                              //
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //   ],
-                                              // ),
-                                            ),
+                                            child: MyCarousel(enlargeCenter: false, viewPort: 0.5)
                                           ),
                                         ],
                                       ),
@@ -920,77 +760,16 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
                                 const SizedBox(width: 8),
                                 Expanded(
                                     child: Container(
-                                      height: 700,
+                                      height: 470,
                                       color: Colors.white,
                                       child: const Column(
                                         //crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text("REVIEW PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                          SizedBox(height: 18),
                                           SizedBox(
-                                            height: 640,
+                                            //height: 640,
                                             //color: Colors.red,
-                                            child: ScrollLoopAutoScroll(
-                                              scrollDirection: Axis.horizontal,
-                                              delay: Duration(seconds: 4),
-                                              duration: Duration(seconds: 50),
-                                              gap: 2,
-                                              reverseScroll: false,
-                                              duplicateChild : 25,
-                                              enableScrollInput : false,
-                                              delayAfterScrollInput : Duration(seconds: 4),
-                                              child:  Column(
-                                                children: [
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                  SlideTile(
-                                                      slideImagePath: "assets/images/chair.png",
-                                                      slideName: "Stuffing Chair",
-                                                      slidePrice: "500.00"
-                                                  ),
-                                                ],
-                                              ),
-                                              // child: ListView(
-                                              //   addAutomaticKeepAlives: true,
-                                              //   scrollDirection: Axis.horizontal,
-                                              //   children: const [
-                                              //
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //     SlideTile(
-                                              //         slideImagePath: "assets/images/chair.png",
-                                              //         slideName: "Stuffing Chair",
-                                              //         slidePrice: "500.00"
-                                              //     ),
-                                              //   ],
-                                              // ),
-                                            ),
+                                            child: MyCarousel(enlargeCenter: false, viewPort: 0.5)
                                           ),
                                         ],
                                       ),

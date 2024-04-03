@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:raininn/widgets/featuredgridview.dart';
+import '../widgets/carousel_slider.dart';
 import '../widgets/menu_type.dart';
 import '../widgets/route.dart';
 import '../widgets/slide_tile.dart';
@@ -357,46 +358,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  CarouselSlider(
-                      options: CarouselOptions(
-                          height: 400.0,
-                          autoPlay: true,
-                          enlargeCenterPage: false,
-                          viewportFraction: 0.3
-                      ),
-                      items: const [
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                      ]
-                  ),
+                  const MyCarousel(enlargeCenter: false, viewPort: 0.3),
                   // const SizedBox(
                   //   height: 320,
                   //   //color: Colors.red,
@@ -607,51 +569,11 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                           child: Container(
                             color: Colors.white,
                             height: 470,
-                            child: Column(
+                            child: const Column(
                               children: [
-                                const Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                const SizedBox(height: 18),
-                                CarouselSlider(
-                                    options: CarouselOptions(
-                                      //scrollDirection: Axis.vertical,
-                                        height: 400.0,
-                                        autoPlay: true,
-                                        enlargeCenterPage: true,
-                                        viewportFraction: 0.5
-                                    ),
-                                    items: const [
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                    ]
-                                ),
+                                Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
+                                SizedBox(height: 18),
+                                MyCarousel(enlargeCenter: false, viewPort: 0.5),
                               ],
                             ),
                           )
@@ -661,51 +583,11 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                           child: Container(
                             color: Colors.white,
                             height: 470,
-                            child: Column(
+                            child: const Column(
                               children: [
-                                const Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
-                                const SizedBox(height: 18),
-                                CarouselSlider(
-                                    options: CarouselOptions(
-                                      //scrollDirection: Axis.vertical,
-                                        height: 400.0,
-                                        autoPlay: true,
-                                        enlargeCenterPage: true,
-                                        viewportFraction: 0.5
-                                    ),
-                                    items: const [
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                      SlideTile(
-                                          slideImagePath: "assets/images/chair.png",
-                                          slideName: "Stuffing Chair",
-                                          slidePrice: "500.00"
-                                      ),
-                                    ]
-                                ),
+                                Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
+                                SizedBox(height: 18),
+                                MyCarousel(enlargeCenter: false, viewPort: 0.5)
                               ],
                             ),
                           )

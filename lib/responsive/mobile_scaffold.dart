@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:raininn/controller/dbfields.dart';
+import 'package:raininn/widgets/carousel_slider.dart';
 import 'package:raininn/widgets/social_media_icons.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 import 'package:typewritertext/typewritertext.dart';
@@ -463,46 +464,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  CarouselSlider(
-                      options: CarouselOptions(
-                          height: 400.0,
-                          autoPlay: true,
-                          enlargeCenterPage: true,
-                          viewportFraction: 0.6
-                      ),
-                      items: const [
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                        SlideTile(
-                            slideImagePath: "assets/images/chair.png",
-                            slideName: "Stuffing Chair",
-                            slidePrice: "500.00"
-                        ),
-                      ]
-                  ),
+                  MyCarousel(enlargeCenter: false, viewPort: 0.6),
                   // const SizedBox(
                   //   height: 320,
                   //   //color: Colors.red,
@@ -710,44 +672,21 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 18),
                   Row(
                     children: [
                       Expanded(
                           child: Container(
                             color: Colors.white,
-                            height: 700,
+                            height: 500,
                             child: const Column(
                               children: [
                                 Text("LATEST PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
                                 SizedBox(height: 18),
                                 SizedBox(
-                                  height: 640,
+                                  //height: 640,
                                   //color: Colors.red,
-                                  child: ScrollLoopAutoScroll(
-                                    scrollDirection: Axis.horizontal,
-                                    delay: Duration(seconds: 4),
-                                    duration: Duration(seconds: 50),
-                                    gap: 2,
-                                    reverseScroll: false,
-                                    duplicateChild : 25,
-                                    enableScrollInput : false,
-                                    delayAfterScrollInput : Duration(seconds: 4),
-                                    child:  Column(
-                                      children: [
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                  child: MyCarousel(enlargeCenter: false, viewPort: 0.6),
                                 ),
                               ],
                             ),
@@ -761,38 +700,15 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       Expanded(
                           child: Container(
                             color: Colors.white,
-                            height: 700,
+                            height: 500,
                             child: const Column(
                               children: [
                                 Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
                                 SizedBox(height: 18),
                                 SizedBox(
-                                  height: 640,
+                                  //height: 640,
                                   //color: Colors.red,
-                                  child: ScrollLoopAutoScroll(
-                                    scrollDirection: Axis.horizontal,
-                                    delay: Duration(seconds: 4),
-                                    duration: Duration(seconds: 50),
-                                    gap: 2,
-                                    reverseScroll: false,
-                                    duplicateChild : 25,
-                                    enableScrollInput : false,
-                                    delayAfterScrollInput : Duration(seconds: 4),
-                                    child:  Column(
-                                      children: [
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                  child: MyCarousel(enlargeCenter: false, viewPort: 0.6),
                                 ),
                               ],
                             ),
@@ -806,38 +722,15 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                       Expanded(
                           child: Container(
                             color: Colors.white,
-                            height: 700,
+                            height: 500,
                             child: const Column(
                               children: [
                                 Text("TOP RATED PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
                                 SizedBox(height: 18),
                                 SizedBox(
-                                  height: 640,
+                                  //height: 640,
                                   //color: Colors.red,
-                                  child: ScrollLoopAutoScroll(
-                                    scrollDirection: Axis.horizontal,
-                                    delay: Duration(seconds: 4),
-                                    duration: Duration(seconds: 50),
-                                    gap: 2,
-                                    reverseScroll: false,
-                                    duplicateChild : 25,
-                                    enableScrollInput : false,
-                                    delayAfterScrollInput : Duration(seconds: 4),
-                                    child:  Column(
-                                      children: [
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                        SlideTile(
-                                            slideImagePath: "assets/images/chair.png",
-                                            slideName: "Stuffing Chair",
-                                            slidePrice: "500.00"
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                  child: MyCarousel(enlargeCenter: false, viewPort: 0.6),
                                 ),
                               ],
                             ),

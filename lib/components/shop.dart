@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
+import '../widgets/carousel_slider.dart';
 import '../widgets/featured_product.dart';
 import '../widgets/featuredgridview.dart';
 import '../widgets/menu_type.dart';
@@ -126,28 +127,9 @@ class _ShopPageState extends State<ShopPage> {
                                         Text("LATEST PRODUCTS", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),),
                                         //SizedBox(height: 18),
                                         SizedBox(
-                                          height: 640,
+                                          //height: 640,
                                           //color: Colors.red,
-                                          child: ScrollLoopAutoScroll(
-                                            scrollDirection: Axis.horizontal,
-                                            delay: Duration(seconds: 4),
-                                            duration: Duration(seconds: 50),
-                                            gap: 2,
-                                            reverseScroll: false,
-                                            duplicateChild : 25,
-                                            enableScrollInput : false,
-                                            delayAfterScrollInput : Duration(seconds: 4),
-                                            child:  Column(
-                                              children: [
-                                                SlideTile(
-                                                    slideImagePath: "assets/images/chair.png",
-                                                    slideName: "Stuffing Chair",
-                                                    slidePrice: "500.00"
-                                                ),
-
-                                              ],
-                                            ),
-                                          ),
+                                          child: MyCarousel(enlargeCenter: false, viewPort: 0.6),
                                         ),
                                       ],
                                     )
